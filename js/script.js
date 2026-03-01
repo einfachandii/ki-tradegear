@@ -21,16 +21,23 @@ async function loadPortfolio() {
 
 // Render Dashboard
 function renderDashboard(data) {
-    renderPerformance(data.overview);
-    renderPositions(data.positions);
-    renderTrades(data.trades);
-    renderInsights(data.insights);
+    renderPerformance(data);
+    renderPositions(data.positions || []);
+    renderTrades(data.trades || []);
+    renderInsights([]);
 }
 
 // Render Performance Overview
-function renderPerformance(overview) {
-    const totalValue = overview.total_value;
-    const startCapital = overview.start_capital;
+function renderPerformance(data) {
+    const cash = data.cash || 0;
+    const startCapital = data.initial_capital || 3000;
+
+    // Calculate positions value
+    const positionsValue = (data.positions || []).reduce((sum, pos) => {
+        return sum + (pos.current_price * pos.quantity);
+    }, 0);
+
+    const totalValue = cash + positionsValue;
     const performance = ((totalValue - startCapital) / startCapital * 100).toFixed(2);
     const profitLoss = totalValue - startCapital;
 
@@ -44,7 +51,7 @@ function renderPerformance(overview) {
     plElement.textContent = formatCurrency(profitLoss);
     plElement.className = `stat-value ${profitLoss >= 0 ? 'positive' : 'negative'}`;
 
-    document.getElementById('cashValue').textContent = formatCurrency(overview.cash);
+    document.getElementById('cashValue').textContent = formatCurrency(cash);
 }
 
 // Render Positions
@@ -56,27 +63,34 @@ function renderPositions(positions) {
         return;
     }
 
-    grid.innerHTML = positions.map(pos => `
+    grid.innerHTML = positions.map(pos => {
+        const currentValue = pos.current_price * pos.quantity;
+        const entryValue = pos.entry_price * pos.quantity;
+        const pnl = currentValue - entryValue;
+        const pnlPercent = ((currentValue - entryValue) / entryValue * 100);
+
+        return `
         <div class="position-card">
             <div class="position-header">
                 <span class="ticker">${pos.ticker}</span>
-                <span class="position-change ${pos.change >= 0 ? 'positive' : 'negative'}">
-                    ${pos.change > 0 ? '+' : ''}${pos.change.toFixed(2)}%
+                <span class="position-change ${pnlPercent >= 0 ? 'positive' : 'negative'}">
+                    ${pnlPercent > 0 ? '+' : ''}${pnlPercent.toFixed(2)}%
                 </span>
             </div>
             <div class="position-details">
                 <div><strong>Stück:</strong> ${pos.quantity}</div>
-                <div><strong>Ø Kaufpreis:</strong> ${formatCurrency(pos.avg_price)}</div>
+                <div><strong>Ø Kaufpreis:</strong> ${formatCurrency(pos.entry_price)}</div>
                 <div><strong>Aktuell:</strong> ${formatCurrency(pos.current_price)}</div>
-                <div><strong>Wert:</strong> ${formatCurrency(pos.current_value)}</div>
+                <div><strong>Wert:</strong> ${formatCurrency(currentValue)}</div>
                 <div><strong>G/V:</strong>
-                    <span class="${pos.unrealized_pl >= 0 ? 'positive' : 'negative'}">
-                        ${formatCurrency(pos.unrealized_pl)}
+                    <span class="${pnl >= 0 ? 'positive' : 'negative'}">
+                        ${formatCurrency(pnl)}
                     </span>
                 </div>
             </div>
         </div>
-    `).join('');
+        `;
+    }).join('');
 }
 
 // Render Trades
@@ -90,19 +104,23 @@ function renderTrades(trades) {
 
     const filteredTrades = currentFilter === 'all'
         ? trades
-        : trades.filter(t => t.type === currentFilter);
+        : trades.filter(t => t.action.toLowerCase() === currentFilter);
 
-    list.innerHTML = filteredTrades.map(trade => `
-        <div class="trade-item ${trade.type}">
+    list.innerHTML = filteredTrades.map(trade => {
+        const type = trade.action.toLowerCase();
+        const total = trade.price * trade.quantity;
+
+        return `
+        <div class="trade-item ${type}">
             <div class="trade-header">
                 <div>
-                    <span class="trade-type ${trade.type}">${trade.type === 'buy' ? 'KAUF' : 'VERKAUF'}</span>
+                    <span class="trade-type ${type}">${type === 'buy' ? 'KAUF' : 'VERKAUF'}</span>
                     <strong style="margin-left: 10px;">${trade.ticker}</strong>
                 </div>
-                <span class="trade-date">${formatDate(trade.date)}</span>
+                <span class="trade-date">${formatDate(trade.timestamp)}</span>
             </div>
             <div class="trade-info">
-                ${trade.quantity} Stück @ ${formatCurrency(trade.price)} = ${formatCurrency(trade.total)}
+                ${trade.quantity} Stück @ ${formatCurrency(trade.price)} = ${formatCurrency(total)}
             </div>
             ${trade.reason ? `
                 <div class="trade-reason">
@@ -110,7 +128,8 @@ function renderTrades(trades) {
                 </div>
             ` : ''}
         </div>
-    `).join('');
+        `;
+    }).join('');
 }
 
 // Render AI Insights
