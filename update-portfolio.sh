@@ -30,19 +30,23 @@ log "Update gestartet (Börsenzeiten aktiv)"
 
 cd "$REPO_DIR" || exit 1
 
+# Update Analytics (Performance Metrics & Benchmarks)
+log "Aktualisiere Performance Analytics..."
+python3 /Users/andreashergett/.dorabot/workspace/musterdepot/backend/update_analytics.py >> "$LOG_FILE" 2>&1
+
 # TODO: Hier wird später das Python Trading-Bot Script aufgerufen
 # python3 trading_bot.py  # Generiert data/portfolio.json
 
-# Prüfe ob Änderungen vorhanden
-if ! git diff --quiet data/portfolio.json; then
+# Prüfe ob Änderungen vorhanden (Portfolio, Benchmarks, Performance Metrics)
+if ! git diff --quiet data/portfolio.json data/benchmarks.json data/performance_metrics.json 2>/dev/null; then
     log "Änderungen erkannt - pushe zu GitHub"
 
-    git add data/portfolio.json
+    git add data/portfolio.json data/benchmarks.json data/performance_metrics.json 2>/dev/null || true
 
-    git commit -m "Update portfolio $(date '+%Y-%m-%d %H:%M')
+    git commit -m "Update portfolio & analytics $(date '+%Y-%m-%d %H:%M')
 
-Auto-Update vom Trading-Bot
-Aktualisiert: Portfolio-Daten
+Auto-Update: Portfolio, Benchmarks, Performance Metrics
+Aktualisiert: $(date '+%Y-%m-%d %H:%M')
 
 Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
 
