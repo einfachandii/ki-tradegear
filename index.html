@@ -34,6 +34,83 @@
             </div>
         </div>
 
+        <section class="benchmarks-section">
+            <h2>📈 Benchmark-Vergleich</h2>
+            <div class="benchmarks-grid">
+                <div class="benchmark-card">
+                    <div class="benchmark-name">DAX</div>
+                    <div class="benchmark-price" id="daxPrice">—</div>
+                    <div class="benchmark-change" id="daxChange">—</div>
+                </div>
+                <div class="benchmark-card">
+                    <div class="benchmark-name">S&P 500</div>
+                    <div class="benchmark-price" id="sp500Price">—</div>
+                    <div class="benchmark-change" id="sp500Change">—</div>
+                </div>
+                <div class="benchmark-card">
+                    <div class="benchmark-name">MSCI World</div>
+                    <div class="benchmark-price" id="msciPrice">—</div>
+                    <div class="benchmark-change" id="msciChange">—</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="risk-metrics-section">
+            <h2>⚖️ Risk Metrics</h2>
+            <div class="risk-metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Sharpe Ratio</div>
+                    <div class="metric-value" id="sharpeRatio">—</div>
+                    <div class="metric-hint">Target: &gt;1</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Sortino Ratio</div>
+                    <div class="metric-value" id="sortinoRatio">—</div>
+                    <div class="metric-hint">Target: &gt;1</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Volatilität</div>
+                    <div class="metric-value" id="volatility">—</div>
+                    <div class="metric-hint">Annualisiert</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Max Drawdown</div>
+                    <div class="metric-value" id="maxDrawdown">—</div>
+                    <div class="metric-hint">Peak-to-Trough</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="trade-stats-section">
+            <h2>🎯 Trade Statistiken</h2>
+            <div class="trade-stats-grid">
+                <div class="stat-item">
+                    <div class="stat-item-label">Win/Loss Ratio</div>
+                    <div class="stat-item-value" id="winLossRatio">—</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-item-label">Win Rate</div>
+                    <div class="stat-item-value" id="winRate">—</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-item-label">Ø Gewinn</div>
+                    <div class="stat-item-value" id="avgWin">—</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-item-label">Ø Verlust</div>
+                    <div class="stat-item-value" id="avgLoss">—</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-item-label">Bester Trade</div>
+                    <div class="stat-item-value" id="bestTrade">—</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-item-label">Schlechtester Trade</div>
+                    <div class="stat-item-value" id="worstTrade">—</div>
+                </div>
+            </div>
+        </section>
+
         <section class="portfolio-section">
             <h2>📊 Aktuelle Positionen</h2>
             <div class="positions-grid" id="positionsGrid">

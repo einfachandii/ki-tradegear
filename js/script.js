@@ -13,9 +13,40 @@ async function loadPortfolio() {
         const data = await response.json();
         renderDashboard(data);
         updateLastUpdate(data.last_updated);
+
+        // Load additional analytics
+        loadBenchmarks();
+        loadPerformanceMetrics();
     } catch (error) {
         console.error('Fehler:', error);
         showError('Fehler beim Laden der Portfolio-Daten');
+    }
+}
+
+// Load Benchmarks
+async function loadBenchmarks() {
+    try {
+        const response = await fetch('data/benchmarks.json');
+        if (!response.ok) throw new Error('Benchmarks nicht verfügbar');
+
+        const data = await response.json();
+        renderBenchmarks(data.benchmarks || {});
+    } catch (error) {
+        console.error('Fehler beim Laden der Benchmarks:', error);
+    }
+}
+
+// Load Performance Metrics
+async function loadPerformanceMetrics() {
+    try {
+        const response = await fetch('data/performance_metrics.json');
+        if (!response.ok) throw new Error('Performance Metrics nicht verfügbar');
+
+        const data = await response.json();
+        renderRiskMetrics(data);
+        renderTradeStatistics(data.win_loss || {});
+    } catch (error) {
+        console.error('Fehler beim Laden der Performance Metrics:', error);
     }
 }
 
@@ -130,6 +161,125 @@ function renderTrades(trades) {
         </div>
         `;
     }).join('');
+}
+
+// Render Benchmarks
+function renderBenchmarks(benchmarks) {
+    const dax = benchmarks.DAX || {};
+    const sp500 = benchmarks.SP500 || {};
+    const msci = benchmarks.MSCI_WORLD || {};
+
+    // DAX
+    document.getElementById('daxPrice').textContent = dax.price
+        ? `${dax.price.toLocaleString('de-DE')} ${dax.currency}`
+        : '—';
+    const daxChangeEl = document.getElementById('daxChange');
+    if (dax.change_pct !== undefined) {
+        daxChangeEl.textContent = `${dax.change_pct > 0 ? '+' : ''}${dax.change_pct}%`;
+        daxChangeEl.className = `benchmark-change ${dax.change_pct >= 0 ? 'positive' : 'negative'}`;
+    }
+
+    // S&P 500
+    document.getElementById('sp500Price').textContent = sp500.price
+        ? `${sp500.price.toLocaleString('de-DE')} ${sp500.currency}`
+        : '—';
+    const sp500ChangeEl = document.getElementById('sp500Change');
+    if (sp500.change_pct !== undefined) {
+        sp500ChangeEl.textContent = `${sp500.change_pct > 0 ? '+' : ''}${sp500.change_pct}%`;
+        sp500ChangeEl.className = `benchmark-change ${sp500.change_pct >= 0 ? 'positive' : 'negative'}`;
+    }
+
+    // MSCI World
+    document.getElementById('msciPrice').textContent = msci.price
+        ? `${msci.price.toLocaleString('de-DE')} ${msci.currency}`
+        : '—';
+    const msciChangeEl = document.getElementById('msciChange');
+    if (msci.change_pct !== undefined) {
+        msciChangeEl.textContent = `${msci.change_pct > 0 ? '+' : ''}${msci.change_pct}%`;
+        msciChangeEl.className = `benchmark-change ${msci.change_pct >= 0 ? 'positive' : 'negative'}`;
+    }
+}
+
+// Render Risk Metrics
+function renderRiskMetrics(metrics) {
+    // Sharpe Ratio
+    const sharpe = metrics.sharpe_ratio || 0;
+    const sharpeEl = document.getElementById('sharpeRatio');
+    sharpeEl.textContent = sharpe.toFixed(2);
+    sharpeEl.className = `metric-value ${sharpe >= 1 ? 'positive' : sharpe >= 0.5 ? 'neutral' : 'negative'}`;
+
+    // Sortino Ratio
+    const sortino = metrics.sortino_ratio || 0;
+    const sortinoEl = document.getElementById('sortinoRatio');
+    if (sortino === Infinity || sortino > 999) {
+        sortinoEl.textContent = '∞';
+        sortinoEl.className = 'metric-value positive';
+    } else {
+        sortinoEl.textContent = sortino.toFixed(2);
+        sortinoEl.className = `metric-value ${sortino >= 1 ? 'positive' : sortino >= 0.5 ? 'neutral' : 'negative'}`;
+    }
+
+    // Volatility
+    const volatility = metrics.volatility || 0;
+    document.getElementById('volatility').textContent = `${volatility.toFixed(2)}%`;
+
+    // Max Drawdown
+    const maxDD = metrics.max_drawdown || {};
+    const maxDDEl = document.getElementById('maxDrawdown');
+    maxDDEl.textContent = maxDD.max_drawdown_pct !== undefined
+        ? `${maxDD.max_drawdown_pct.toFixed(2)}%`
+        : '0%';
+    maxDDEl.className = `metric-value ${maxDD.max_drawdown_pct === 0 ? 'positive' : 'negative'}`;
+}
+
+// Render Trade Statistics
+function renderTradeStatistics(winLoss) {
+    // Win/Loss Ratio
+    const ratio = winLoss.win_loss_ratio || 0;
+    const ratioEl = document.getElementById('winLossRatio');
+    if (ratio === Infinity || ratio > 999) {
+        ratioEl.textContent = '∞';
+        ratioEl.className = 'stat-item-value positive';
+    } else if (winLoss.total_trades === 0) {
+        ratioEl.textContent = '—';
+    } else {
+        ratioEl.textContent = ratio.toFixed(2);
+        ratioEl.className = `stat-item-value ${ratio >= 1 ? 'positive' : 'negative'}`;
+    }
+
+    // Win Rate
+    const winRate = winLoss.win_rate || 0;
+    const winRateEl = document.getElementById('winRate');
+    winRateEl.textContent = winLoss.total_trades > 0 ? `${winRate.toFixed(1)}%` : '—';
+    winRateEl.className = `stat-item-value ${winRate >= 50 ? 'positive' : 'negative'}`;
+
+    // Avg Win
+    document.getElementById('avgWin').textContent = winLoss.avg_win
+        ? formatCurrency(winLoss.avg_win)
+        : '—';
+
+    // Avg Loss
+    document.getElementById('avgLoss').textContent = winLoss.avg_loss
+        ? formatCurrency(winLoss.avg_loss)
+        : '—';
+
+    // Best Trade
+    const bestTrade = winLoss.best_trade;
+    const bestEl = document.getElementById('bestTrade');
+    if (bestTrade) {
+        bestEl.innerHTML = `${bestTrade.ticker}<br><span class="positive">${formatCurrency(bestTrade.pnl)}</span>`;
+    } else {
+        bestEl.textContent = '—';
+    }
+
+    // Worst Trade
+    const worstTrade = winLoss.worst_trade;
+    const worstEl = document.getElementById('worstTrade');
+    if (worstTrade) {
+        worstEl.innerHTML = `${worstTrade.ticker}<br><span class="negative">${formatCurrency(worstTrade.pnl)}</span>`;
+    } else {
+        worstEl.textContent = '—';
+    }
 }
 
 // Render AI Insights

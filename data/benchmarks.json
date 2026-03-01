@@ -1,0 +1,29 @@
+{
+  "updated_at": "2026-03-01T16:37:00",
+  "benchmarks": {
+    "DAX": {
+      "symbol": "^GDAXI",
+      "price": 25284.26,
+      "change": 39.0,
+      "change_pct": 0.16,
+      "timestamp": "2026-02-27T17:30:00",
+      "currency": "EUR"
+    },
+    "SP500": {
+      "symbol": "^GSPC",
+      "price": 6864.6,
+      "change": -14.28,
+      "change_pct": -0.21,
+      "timestamp": "2026-03-01T16:00:00",
+      "currency": "USD"
+    },
+    "MSCI_WORLD": {
+      "symbol": "URTH",
+      "price": 4547.25,
+      "change": -18.62,
+      "change_pct": -0.41,
+      "timestamp": "2026-03-01T14:09:00",
+      "currency": "USD"
+    }
+  }
+}
