@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musterdepot KI Agent | Andreas Hergett</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 Musterdepot KI Agent</h1>
+            <p class="subtitle">Autonomes Trading-System | Startkapital: 3.000€</p>
+            <div class="last-update" id="lastUpdate">Lädt Daten...</div>
+        </header>
+
+        <div class="performance-overview">
+            <div class="stat-card">
+                <div class="stat-label">Aktueller Wert</div>
+                <div class="stat-value" id="totalValue">—</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Performance</div>
+                <div class="stat-value" id="performance">—</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Gewinn/Verlust</div>
+                <div class="stat-value" id="profitLoss">—</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Cash</div>
+                <div class="stat-value" id="cashValue">—</div>
+            </div>
+        </div>
+
+        <section class="portfolio-section">
+            <h2>📊 Aktuelle Positionen</h2>
+            <div class="positions-grid" id="positionsGrid">
+                <div class="loading">Lade Portfolio-Daten...</div>
+            </div>
+        </section>
+
+        <section class="trades-section">
+            <h2>📝 Trading-Historie</h2>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Alle</button>
+                <button class="filter-btn" data-filter="buy">Käufe</button>
+                <button class="filter-btn" data-filter="sell">Verkäufe</button>
+            </div>
+            <div class="trades-list" id="tradesList">
+                <div class="loading">Lade Trading-Historie...</div>
+            </div>
+        </section>
+
+        <section class="ai-insights">
+            <h2>🧠 KI-Analyse & Begründungen</h2>
+            <div class="insights-grid" id="insightsGrid">
+                <div class="loading">Lade KI-Insights...</div>
+            </div>
+        </section>
+
+        <footer>
+            <p>🤖 Powered by Claude AI | Auto-Update alle 5 Minuten während Börsenzeiten (8-22 Uhr)</p>
+            <p class="disclaimer">⚠️ Musterdepot zu Demonstrationszwecken. Keine Anlageberatung.</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
