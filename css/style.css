@@ -372,3 +372,55 @@ footer {
         font-size: 1.5rem;
     }
 }
+
+/* AI Insights Enhanced Styling */
+.insight-card {
+    padding: 16px;
+    background: var(--bg-card);
+    border-radius: 8px;
+    border-left: 4px solid var(--accent);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.insight-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.insight-card.insight-trade {
+    border-left-color: #4caf50;
+}
+
+.insight-card.insight-system {
+    border-left-color: #2196f3;
+}
+
+.insight-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.insight-icon {
+    font-size: 1.2em;
+}
+
+.insight-title {
+    font-weight: 600;
+    color: var(--text-primary);
+    flex: 1;
+}
+
+.insight-time {
+    font-size: 0.85em;
+    color: var(--text-secondary);
+}
+
+.insight-content {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+

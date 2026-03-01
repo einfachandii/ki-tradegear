@@ -24,7 +24,7 @@ function renderDashboard(data) {
     renderPerformance(data);
     renderPositions(data.positions || []);
     renderTrades(data.trades || []);
-    renderInsights([]);
+    renderInsights(data.insights || []);
 }
 
 // Render Performance Overview
@@ -137,16 +137,41 @@ function renderInsights(insights) {
     const grid = document.getElementById('insightsGrid');
 
     if (!insights || insights.length === 0) {
-        grid.innerHTML = '<div class="loading">Keine aktuellen Insights</div>';
+        grid.innerHTML = `
+            <div class="insight-card">
+                <div class="insight-title">💤 Aktuell keine AI-Analyse</div>
+                <div class="insight-content">
+                    Der Trading-Bot läuft während Börsenzeiten (Mo-Fr 8-22 Uhr). <br>
+                    Sobald der Bot tradet, erscheinen hier die AI-Begründungen und Trading-Pläne.
+                </div>
+            </div>
+        `;
         return;
     }
 
-    grid.innerHTML = insights.map(insight => `
-        <div class="insight-card">
-            <div class="insight-title">${insight.title}</div>
-            <div class="insight-content">${insight.content}</div>
-        </div>
-    `).join('');
+    // Sort insights by timestamp (newest first)
+    const sortedInsights = [...insights].sort((a, b) => {
+        return new Date(b.timestamp) - new Date(a.timestamp);
+    });
+
+    grid.innerHTML = sortedInsights.map(insight => {
+        const icon = insight.type === 'trade' ? '🔔' :
+                     insight.type === 'system' ? '⚙️' : '💡';
+        const time = new Date(insight.timestamp).toLocaleTimeString('de-DE', {
+            hour: '2-digit', minute: '2-digit'
+        });
+
+        return `
+            <div class="insight-card insight-${insight.type}">
+                <div class="insight-header">
+                    <span class="insight-icon">${icon}</span>
+                    <span class="insight-title">${insight.title}</span>
+                    <span class="insight-time">${time}</span>
+                </div>
+                <div class="insight-content">${insight.content.replace(/\n/g, '<br>')}</div>
+            </div>
+        `;
+    }).join('');
 }
 
 // Update Last Update Timestamp

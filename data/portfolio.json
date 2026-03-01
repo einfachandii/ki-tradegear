@@ -3,5 +3,20 @@
   "cash": 3000.0,
   "positions": [],
   "trades": [],
-  "last_updated": "2026-03-01T15:56:00"
+  "insights": [
+    {
+      "title": "Trading Cycle Start",
+      "content": "🔍 Analysiere Märkte mit 41 Assets | Portfolio: 0/5 Positionen | Cash: €3,000.00 (100.0%)",
+      "type": "system",
+      "timestamp": "2026-03-01T16:30:00"
+    },
+    {
+      "title": "🔍 Marktanalyse abgeschlossen",
+      "content": "Keine Trading-Opportunities gefunden.\n\n**Gründe:**\n📉 Wochenende - Börsen geschlossen\n⏰ Nächste Handelszeit: Montag 08:00 MEZ\n\n**Strategie für Montag:**\n- Fokus auf US Tech (AAPL, MSFT, NVDA)\n- Defense Stocks beobachten (LMT, NOC)\n- TradingView Empfehlungen prüfen",
+      "type": "strategy",
+      "timestamp": "2026-03-01T16:30:05"
+    }
+  ],
+  "trade_counter": 0,
+  "last_updated": "2026-03-01T16:30:10"
 }
