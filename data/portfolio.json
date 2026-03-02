@@ -1,22 +1,76 @@
 {
   "initial_capital": 3000.0,
-  "cash": 3000.0,
-  "positions": [],
-  "trades": [],
+  "cash": 2179.3900184631348,
+  "positions": [
+    {
+      "ticker": "EWU",
+      "asset_type": "Index ETF",
+      "quantity": 9,
+      "entry_price": 48.689998626708984,
+      "entry_date": "2026-03-02T08:14:09.285380",
+      "entry_reason": "\ud83d\udcc8 Preis \u00fcber 20-EMA (kurzfristiger Uptrend) | \ud83d\udcca Preis \u00fcber 50-EMA (mittelfristiger Uptrend) | \ud83d\ude80 Preis \u00fcber 200-EMA (langfristiger Bullmarkt)",
+      "stop_loss": 44.79479873657227,
+      "target_price": 58.42799835205078,
+      "current_price": 48.689998626708984,
+      "market_value": 438.20998764038086,
+      "cost_basis": 438.20998764038086,
+      "pnl": 0.0,
+      "pnl_percent": 0.0
+    },
+    {
+      "ticker": "ALV.DE",
+      "asset_type": "Stock",
+      "quantity": 1,
+      "entry_price": 382.3999938964844,
+      "entry_date": "2026-03-02T08:18:47.821692",
+      "entry_reason": "\ud83d\udcc8 Preis \u00fcber 20-EMA (kurzfristiger Uptrend) | \ud83d\udcca Preis \u00fcber 50-EMA (mittelfristiger Uptrend) | \u26a1 MACD bullish (Momentum positiv)",
+      "stop_loss": 369.7999965122768,
+      "target_price": 407.59998866489957,
+      "current_price": 382.3999938964844,
+      "market_value": 382.3999938964844,
+      "cost_basis": 382.3999938964844,
+      "pnl": 0.0,
+      "pnl_percent": 0.0
+    }
+  ],
+  "trades": [
+    {
+      "trade_id": 1,
+      "ticker": "EWU",
+      "action": "BUY",
+      "quantity": 9,
+      "price": 48.689998626708984,
+      "timestamp": "2026-03-02T08:14:09.285398",
+      "reason": "\ud83d\udcc8 Preis \u00fcber 20-EMA (kurzfristiger Uptrend) | \ud83d\udcca Preis \u00fcber 50-EMA (mittelfristiger Uptrend) | \ud83d\ude80 Preis \u00fcber 200-EMA (langfristiger Bullmarkt)",
+      "total_value": 438.20998764038086,
+      "fees": 0.0
+    },
+    {
+      "trade_id": 2,
+      "ticker": "ALV.DE",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 382.3999938964844,
+      "timestamp": "2026-03-02T08:18:47.821700",
+      "reason": "\ud83d\udcc8 Preis \u00fcber 20-EMA (kurzfristiger Uptrend) | \ud83d\udcca Preis \u00fcber 50-EMA (mittelfristiger Uptrend) | \u26a1 MACD bullish (Momentum positiv)",
+      "total_value": 382.3999938964844,
+      "fees": 0.0
+    }
+  ],
   "insights": [
     {
       "title": "Trading Cycle Start",
-      "content": "🔍 Analysiere Märkte mit 41 Assets | Portfolio: 0/5 Positionen | Cash: €3,000.00 (100.0%)",
+      "content": "\ud83d\udd0d Analysiere M\u00e4rkte mit 34 Assets | Portfolio: 1/5 Positionen | Cash: \u20ac2561.79 (85.4%)",
       "type": "system",
-      "timestamp": "2026-03-01T16:30:00"
+      "timestamp": "2026-03-02T08:18:44.967798"
     },
     {
-      "title": "🔍 Marktanalyse abgeschlossen",
-      "content": "Keine Trading-Opportunities gefunden.\n\n**Gründe:**\n📉 Wochenende - Börsen geschlossen\n⏰ Nächste Handelszeit: Montag 08:00 MEZ\n\n**Strategie für Montag:**\n- Fokus auf US Tech (AAPL, MSFT, NVDA)\n- Defense Stocks beobachten (LMT, NOC)\n- TradingView Empfehlungen prüfen",
-      "type": "strategy",
-      "timestamp": "2026-03-01T16:30:05"
+      "title": "\ud83d\udd14 Trade-Entscheidung: BUY ALV.DE",
+      "content": "\ud83c\udfaf **BUY ALV.DE** @ \u20ac382.40\n\ud83d\udcca Score: 15/15 | Confidence: 67%\n\ud83d\udcb0 Menge: 1 St\u00fcck = \u20ac382.40\n\ud83d\udee1\ufe0f Stop-Loss: \u20ac369.80 (-3.3%)\n\ud83c\udfaf Take-Profit: \u20ac407.60 (+6.6%)\n\u2696\ufe0f Risk/Reward: 2.0:1\n\ud83d\udcdd Begr\u00fcndung: \ud83d\udcc8 Preis \u00fcber 20-EMA (kurzfristiger Uptrend) | \ud83d\udcca Preis \u00fcber 50-EMA (mittelfristiger Uptrend) | \u26a1 MACD bullish (Momentum positiv)",
+      "type": "trade",
+      "timestamp": "2026-03-02T08:18:47.821683"
     }
   ],
-  "trade_counter": 0,
-  "last_updated": "2026-03-01T16:30:10"
+  "trade_counter": 2,
+  "last_updated": "2026-03-02T08:22:45.864367"
 }
