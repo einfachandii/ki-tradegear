@@ -585,3 +585,22 @@ footer {
     }
 }
 
+/* Stock Name Styling */
+.ticker-symbol {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    opacity: 0.7;
+    font-weight: normal;
+}
+
+.position-header .ticker {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.position-header > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+

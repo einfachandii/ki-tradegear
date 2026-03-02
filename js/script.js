@@ -4,6 +4,54 @@ const TRADING_HOURS = { start: 8, end: 22 }; // 8-22 Uhr
 
 let currentFilter = 'all';
 
+// Stock Name Mapping (Ticker → Full Name)
+const STOCK_NAMES = {
+    // US Stocks
+    'AAPL': 'Apple Inc.',
+    'MSFT': 'Microsoft Corporation',
+    'NVDA': 'NVIDIA Corporation',
+    'GOOGL': 'Alphabet Inc.',
+    'AMZN': 'Amazon.com Inc.',
+    'META': 'Meta Platforms Inc.',
+    'TSLA': 'Tesla Inc.',
+    'NOC': 'Northrop Grumman',
+    'GD': 'General Dynamics',
+    'LMT': 'Lockheed Martin',
+    'LLY': 'Eli Lilly',
+    'AMD': 'Advanced Micro Devices',
+
+    // German Stocks
+    'ALV.DE': 'Allianz SE',
+    'RWE.DE': 'RWE AG',
+    'RHM.DE': 'Rheinmetall AG',
+    'SIE.DE': 'Siemens AG',
+    'SAP': 'SAP SE',
+    'DBK.DE': 'Deutsche Bank AG',
+    'BMW.DE': 'BMW AG',
+    'VOW3.DE': 'Volkswagen AG',
+    'NDX1.DE': 'Nordex SE',
+    '2GB.DE': '2G Energy AG',
+    'SFC.DE': 'SFC Energy AG',
+
+    // EU Stocks
+    'ASML': 'ASML Holding',
+    'ERIC-B.ST': 'Ericsson',
+    'MC.PA': 'LVMH',
+    'OR.PA': "L'Oréal",
+
+    // ETFs
+    'EWU': 'iShares MSCI United Kingdom ETF',
+    'EWG': 'iShares MSCI Germany ETF',
+    'EWI': 'iShares MSCI Italy ETF',
+    'SPY': 'SPDR S&P 500 ETF',
+    'QQQ': 'Invesco QQQ Trust'
+};
+
+// Get stock name or return ticker if not found
+function getStockName(ticker) {
+    return STOCK_NAMES[ticker] || ticker;
+}
+
 // Load Portfolio Data
 async function loadPortfolio() {
     try {
@@ -103,7 +151,10 @@ function renderPositions(positions) {
         return `
         <div class="position-card">
             <div class="position-header">
-                <span class="ticker">${pos.ticker}</span>
+                <div>
+                    <span class="ticker">${getStockName(pos.ticker)}</span>
+                    <span class="ticker-symbol">${pos.ticker}</span>
+                </div>
                 <span class="position-change ${pnlPercent >= 0 ? 'positive' : 'negative'}">
                     ${pnlPercent > 0 ? '+' : ''}${pnlPercent.toFixed(2)}%
                 </span>
@@ -146,7 +197,8 @@ function renderTrades(trades) {
             <div class="trade-header">
                 <div>
                     <span class="trade-type ${type}">${type === 'buy' ? 'KAUF' : 'VERKAUF'}</span>
-                    <strong style="margin-left: 10px;">${trade.ticker}</strong>
+                    <strong style="margin-left: 10px;">${getStockName(trade.ticker)}</strong>
+                    <span class="ticker-symbol" style="margin-left: 5px;">(${trade.ticker})</span>
                 </div>
                 <span class="trade-date">${formatDate(trade.timestamp)}</span>
             </div>
