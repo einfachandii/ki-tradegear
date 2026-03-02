@@ -1,4 +1,29 @@
 {
-  "updated_at": "2026-03-02T14:04:18.766404",
-  "benchmarks": {}
+  "updated_at": "2026-03-02T17:20:00",
+  "benchmarks": {
+    "DAX": {
+      "symbol": "^GDAXI",
+      "name": "DAX",
+      "price": 24743.44,
+      "change": -31.50,
+      "change_percent": -0.13,
+      "currency": "EUR"
+    },
+    "SP500": {
+      "symbol": "^GSPC",
+      "name": "S&P 500",
+      "price": 6848.00,
+      "change": -31.00,
+      "change_percent": -0.45,
+      "currency": "USD"
+    },
+    "MSCI_WORLD": {
+      "symbol": "URTH",
+      "name": "MSCI World",
+      "price": 4547.25,
+      "change": -18.62,
+      "change_percent": -0.41,
+      "currency": "USD"
+    }
+  }
 }
