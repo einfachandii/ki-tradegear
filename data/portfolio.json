@@ -11,11 +11,12 @@
       "entry_reason": "\ud83d\udcc8 EPS-Wachstum 12.6% YoY (solide) | \ud83d\udcbc Umsatzwachstum 13.3% YoY (gesund) | \ud83d\udc8e ROE 22.4% (hohe Profitabilit\u00e4t)",
       "stop_loss": 1567.142857142857,
       "target_price": 1904.2142857142858,
-      "current_price": 1648.5,
-      "market_value": 1648.5,
+      "current_price": 1654.5,
+      "wkn": "703000",
+      "market_value": 1654.5,
       "cost_basis": 1679.5,
-      "pnl": -31.0,
-      "pnl_percent": -1.845787436737124
+      "pnl": -25.0,
+      "pnl_percent": -1.4885382554331645
     },
     {
       "ticker": "ALV.DE",
@@ -26,11 +27,12 @@
       "entry_reason": "\ud83d\udcb0 P/E 13.7 (g\u00fcnstig bewertet) | \ud83d\udc8e ROE 18.2% (hohe Profitabilit\u00e4t) | \ud83d\udc4d Analysten: BUY",
       "stop_loss": 359.2000078473772,
       "target_price": 397.90000261579246,
-      "current_price": 371.79998779296875,
-      "market_value": 371.79998779296875,
+      "current_price": 370.70001220703125,
+      "wkn": "840400",
+      "market_value": 370.70001220703125,
       "cost_basis": 372.1000061035156,
-      "pnl": -0.300018310546875,
-      "pnl_percent": -0.08062840785426163
+      "pnl": -1.399993896484375,
+      "pnl_percent": -0.37624129898425923
     },
     {
       "ticker": "NDX1.DE",
@@ -41,11 +43,12 @@
       "entry_reason": "\ud83d\ude80 EPS-Wachstum 956.5% YoY (stark) | \ud83d\udcb9 Umsatzwachstum 15.8% YoY (stark) | \ud83d\udc8e ROE 24.1% (hohe Profitabilit\u00e4t)",
       "stop_loss": 39.12571552821568,
       "target_price": 50.868571690150674,
-      "current_price": 43.439998626708984,
-      "market_value": 434.39998626708984,
+      "current_price": 43.619998931884766,
+      "wkn": "A0D655",
+      "market_value": 436.19998931884766,
       "cost_basis": 430.40000915527344,
-      "pnl": 3.9999771118164062,
-      "pnl_percent": 0.9293626920842729
+      "pnl": 5.799980163574219,
+      "pnl_percent": 1.3475790056226014
     },
     {
       "ticker": "ERIC-B.ST",
@@ -56,11 +59,12 @@
       "entry_reason": "\ud83d\udcb0 P/E 12.1 (g\u00fcnstig bewertet) | \ud83d\ude80 EPS-Wachstum 79.2% YoY (stark) | \ud83d\udc8e ROE 28.3% (hohe Profitabilit\u00e4t)",
       "stop_loss": 99.07142966134208,
       "target_price": 111.00714983258929,
-      "current_price": 104.80000305175781,
-      "market_value": 419.20001220703125,
+      "current_price": 104.55000305175781,
+      "wkn": "ERIC-B.ST",
+      "market_value": 418.20001220703125,
       "cost_basis": 412.20001220703125,
-      "pnl": 7.0,
-      "pnl_percent": 1.6982047046821012
+      "pnl": 6.0,
+      "pnl_percent": 1.4556040325846582
     }
   ],
   "trades": [
@@ -73,7 +77,8 @@
       "timestamp": "2026-03-02T12:23:05.685314",
       "reason": "\ud83d\udcc8 EPS-Wachstum 12.6% YoY (solide) | \ud83d\udcbc Umsatzwachstum 13.3% YoY (gesund) | \ud83d\udc8e ROE 22.4% (hohe Profitabilit\u00e4t)",
       "total_value": 1679.5,
-      "fees": 0.0
+      "fees": 0.0,
+      "wkn": "703000"
     },
     {
       "trade_id": 2,
@@ -84,7 +89,8 @@
       "timestamp": "2026-03-02T13:17:37.276141",
       "reason": "\ud83d\udcb0 P/E 13.7 (g\u00fcnstig bewertet) | \ud83d\udc8e ROE 18.2% (hohe Profitabilit\u00e4t) | \ud83d\udc4d Analysten: BUY",
       "total_value": 372.1000061035156,
-      "fees": 0.0
+      "fees": 0.0,
+      "wkn": "840400"
     },
     {
       "trade_id": 3,
@@ -95,7 +101,8 @@
       "timestamp": "2026-03-02T14:19:05.231208",
       "reason": "\ud83d\ude80 EPS-Wachstum 956.5% YoY (stark) | \ud83d\udcb9 Umsatzwachstum 15.8% YoY (stark) | \ud83d\udc8e ROE 24.1% (hohe Profitabilit\u00e4t)",
       "total_value": 430.40000915527344,
-      "fees": 0.0
+      "fees": 0.0,
+      "wkn": "A0D655"
     },
     {
       "trade_id": 4,
@@ -106,7 +113,8 @@
       "timestamp": "2026-03-02T15:20:35.621917",
       "reason": "\ud83d\udcb0 P/E 12.1 (g\u00fcnstig bewertet) | \ud83d\ude80 EPS-Wachstum 79.2% YoY (stark) | \ud83d\udc8e ROE 28.3% (hohe Profitabilit\u00e4t)",
       "total_value": 412.20001220703125,
-      "fees": 0.0
+      "fees": 0.0,
+      "wkn": "ERIC-B.ST"
     }
   ],
   "insights": [
@@ -118,5 +126,5 @@
     }
   ],
   "trade_counter": 4,
-  "last_updated": "2026-03-02T16:15:53.478078"
+  "last_updated": "2026-03-02T16:24:03.332476"
 }

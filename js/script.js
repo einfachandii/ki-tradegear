@@ -154,6 +154,7 @@ function renderPositions(positions) {
                 <div>
                     <span class="ticker">${getStockName(pos.ticker)}</span>
                     <span class="ticker-symbol">${pos.ticker}</span>
+                    ${pos.wkn ? `<span class="ticker-symbol" style="color: #6c757d;">WKN: ${pos.wkn}</span>` : ''}
                 </div>
                 <span class="position-change ${pnlPercent >= 0 ? 'positive' : 'negative'}">
                     ${pnlPercent > 0 ? '+' : ''}${pnlPercent.toFixed(2)}%
@@ -199,6 +200,7 @@ function renderTrades(trades) {
                     <span class="trade-type ${type}">${type === 'buy' ? 'KAUF' : 'VERKAUF'}</span>
                     <strong style="margin-left: 10px;">${getStockName(trade.ticker)}</strong>
                     <span class="ticker-symbol" style="margin-left: 5px;">(${trade.ticker})</span>
+                    ${trade.wkn ? `<span class="ticker-symbol" style="margin-left: 5px; color: #6c757d;">WKN: ${trade.wkn}</span>` : ''}
                 </div>
                 <span class="trade-date">${formatDate(trade.timestamp)}</span>
             </div>
