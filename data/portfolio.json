@@ -1,6 +1,6 @@
 {
   "initial_capital": 3000.0,
-  "cash": 1320.5,
+  "cash": 948.3999938964844,
   "positions": [
     {
       "ticker": "RHM.DE",
@@ -11,11 +11,26 @@
       "entry_reason": "\ud83d\udcc8 EPS-Wachstum 12.6% YoY (solide) | \ud83d\udcbc Umsatzwachstum 13.3% YoY (gesund) | \ud83d\udc8e ROE 22.4% (hohe Profitabilit\u00e4t)",
       "stop_loss": 1567.142857142857,
       "target_price": 1904.2142857142858,
-      "current_price": 1679.0,
-      "market_value": 1679.0,
+      "current_price": 1657.5,
+      "market_value": 1657.5,
       "cost_basis": 1679.5,
-      "pnl": -0.5,
-      "pnl_percent": -0.029770765108663295
+      "pnl": -22.0,
+      "pnl_percent": -1.3099136647811849
+    },
+    {
+      "ticker": "ALV.DE",
+      "asset_type": "Stock",
+      "quantity": 1,
+      "entry_price": 372.1000061035156,
+      "entry_date": "2026-03-02T13:17:37.276132",
+      "entry_reason": "\ud83d\udcb0 P/E 13.7 (g\u00fcnstig bewertet) | \ud83d\udc8e ROE 18.2% (hohe Profitabilit\u00e4t) | \ud83d\udc4d Analysten: BUY",
+      "stop_loss": 359.2000078473772,
+      "target_price": 397.90000261579246,
+      "current_price": 371.70001220703125,
+      "market_value": 371.70001220703125,
+      "cost_basis": 372.1000061035156,
+      "pnl": -0.399993896484375,
+      "pnl_percent": -0.1074963423604727
     }
   ],
   "trades": [
@@ -29,22 +44,33 @@
       "reason": "\ud83d\udcc8 EPS-Wachstum 12.6% YoY (solide) | \ud83d\udcbc Umsatzwachstum 13.3% YoY (gesund) | \ud83d\udc8e ROE 22.4% (hohe Profitabilit\u00e4t)",
       "total_value": 1679.5,
       "fees": 0.0
+    },
+    {
+      "trade_id": 2,
+      "ticker": "ALV.DE",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 372.1000061035156,
+      "timestamp": "2026-03-02T13:17:37.276141",
+      "reason": "\ud83d\udcb0 P/E 13.7 (g\u00fcnstig bewertet) | \ud83d\udc8e ROE 18.2% (hohe Profitabilit\u00e4t) | \ud83d\udc4d Analysten: BUY",
+      "total_value": 372.1000061035156,
+      "fees": 0.0
     }
   ],
   "insights": [
     {
       "title": "Trading Cycle Start",
-      "content": "\ud83d\udd0d Analysiere M\u00e4rkte mit 100 Assets | Portfolio: 0/5 Positionen | Cash: \u20ac3000.00 (100.0%)",
+      "content": "\ud83d\udd0d Analysiere M\u00e4rkte mit 100 Assets | Portfolio: 1/5 Positionen | Cash: \u20ac1320.50 (44.0%)",
       "type": "system",
-      "timestamp": "2026-03-02T12:21:45.260709"
+      "timestamp": "2026-03-02T13:16:13.449089"
     },
     {
-      "title": "\ud83d\udd14 Trade-Entscheidung: BUY RHM.DE",
-      "content": "\ud83c\udfaf **BUY RHM.DE** @ \u20ac1679.50\n\ud83d\udcca Score: 12/15 | Confidence: 52%\n\ud83d\udcb0 Menge: 1 St\u00fcck = \u20ac1679.50\n\ud83d\udee1\ufe0f Stop-Loss: \u20ac1567.14 (-6.7%)\n\ud83c\udfaf Take-Profit: \u20ac1904.21 (+13.4%)\n\u2696\ufe0f Risk/Reward: 2.0:1\n\ud83d\udcdd Begr\u00fcndung: \ud83d\udcc8 EPS-Wachstum 12.6% YoY (solide) | \ud83d\udcbc Umsatzwachstum 13.3% YoY (gesund) | \ud83d\udc8e ROE 22.4% (hohe Profitabilit\u00e4t)",
+      "title": "\ud83d\udd14 Trade-Entscheidung: BUY ALV.DE",
+      "content": "\ud83c\udfaf **BUY ALV.DE** @ \u20ac372.10\n\ud83d\udcca Score: 12/15 | Confidence: 48%\n\ud83d\udcb0 Menge: 1 St\u00fcck = \u20ac372.10\n\ud83d\udee1\ufe0f Stop-Loss: \u20ac359.20 (-3.5%)\n\ud83c\udfaf Take-Profit: \u20ac397.90 (+6.9%)\n\u2696\ufe0f Risk/Reward: 2.0:1\n\ud83d\udcdd Begr\u00fcndung: \ud83d\udcb0 P/E 13.7 (g\u00fcnstig bewertet) | \ud83d\udc8e ROE 18.2% (hohe Profitabilit\u00e4t) | \ud83d\udc4d Analysten: BUY",
       "type": "trade",
-      "timestamp": "2026-03-02T12:23:05.685304"
+      "timestamp": "2026-03-02T13:17:37.276121"
     }
   ],
-  "trade_counter": 1,
-  "last_updated": "2026-03-02T12:23:05.768589"
+  "trade_counter": 2,
+  "last_updated": "2026-03-02T13:59:27.327611"
 }
