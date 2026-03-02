@@ -26,11 +26,11 @@
       "entry_reason": "\ud83d\udcc8 Preis \u00fcber 20-EMA (kurzfristiger Uptrend) | \ud83d\udcca Preis \u00fcber 50-EMA (mittelfristiger Uptrend) | \u26a1 MACD bullish (Momentum positiv)",
       "stop_loss": 369.7999965122768,
       "target_price": 407.59998866489957,
-      "current_price": 373.20001220703125,
-      "market_value": 373.20001220703125,
+      "current_price": 373.79998779296875,
+      "market_value": 373.79998779296875,
       "cost_basis": 382.3999938964844,
-      "pnl": -9.199981689453125,
-      "pnl_percent": -2.40585299066285
+      "pnl": -8.600006103515625,
+      "pnl_percent": -2.2489556068987926
     },
     {
       "ticker": "LLY",
@@ -152,5 +152,5 @@
     }
   ],
   "trade_counter": 6,
-  "last_updated": "2026-03-02T11:14:44.581221"
+  "last_updated": "2026-03-02T11:18:47.212818"
 }
