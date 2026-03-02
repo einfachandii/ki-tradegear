@@ -1,6 +1,6 @@
 {
   "initial_capital": 3000.0,
-  "cash": 479.45927253417966,
+  "cash": 54.73181752498215,
   "positions": [
     {
       "ticker": "RHM.DE",
@@ -11,12 +11,12 @@
       "entry_reason": "\ud83d\udcc8 EPS-Wachstum 12.6% YoY (solide) | \ud83d\udcbc Umsatzwachstum 13.3% YoY (gesund) | \ud83d\udc8e ROE 22.4% (hohe Profitabilit\u00e4t)",
       "stop_loss": 1567.142857142857,
       "target_price": 1904.2142857142858,
-      "current_price": 1658.5,
+      "current_price": 1634.5,
       "wkn": "703000",
-      "market_value": 1658.5,
+      "market_value": 1634.5,
       "cost_basis": 1679.5,
-      "pnl": -21.0,
-      "pnl_percent": -1.2503721345638583
+      "pnl": -45.0,
+      "pnl_percent": -2.6793688597796965
     },
     {
       "ticker": "ALV.DE",
@@ -27,12 +27,12 @@
       "entry_reason": "\ud83d\udcb0 P/E 13.7 (g\u00fcnstig bewertet) | \ud83d\udc8e ROE 18.2% (hohe Profitabilit\u00e4t) | \ud83d\udc4d Analysten: BUY",
       "stop_loss": 359.2000078473772,
       "target_price": 397.90000261579246,
-      "current_price": 370.3999938964844,
+      "current_price": 369.29998779296875,
       "wkn": "840400",
-      "market_value": 370.3999938964844,
+      "market_value": 369.29998779296875,
       "cost_basis": 372.1000061035156,
-      "pnl": -1.70001220703125,
-      "pnl_percent": -0.4568697068385208
+      "pnl": -2.800018310546875,
+      "pnl_percent": -0.7524907994137279
     },
     {
       "ticker": "NDX1.DE",
@@ -43,28 +43,28 @@
       "entry_reason": "\ud83d\ude80 EPS-Wachstum 956.5% YoY (stark) | \ud83d\udcb9 Umsatzwachstum 15.8% YoY (stark) | \ud83d\udc8e ROE 24.1% (hohe Profitabilit\u00e4t)",
       "stop_loss": 39.12571552821568,
       "target_price": 50.868571690150674,
-      "current_price": 43.68000030517578,
+      "current_price": 43.459999084472656,
       "wkn": "A0D655",
-      "market_value": 436.8000030517578,
+      "market_value": 434.59999084472656,
       "cost_basis": 430.40000915527344,
-      "pnl": 6.399993896484375,
-      "pnl_percent": 1.4869873978500494
+      "pnl": 4.199981689453125,
+      "pnl_percent": 0.9758321561600889
     },
     {
-      "ticker": "ERIC-B.ST",
+      "ticker": "NVDA",
       "asset_type": "Stock",
-      "quantity": 4,
-      "entry_price": 9.635175285339356,
-      "entry_date": "2026-03-02T15:20:35.621912",
-      "entry_reason": "\ud83d\udcb0 P/E 12.1 (g\u00fcnstig bewertet) | \ud83d\ude80 EPS-Wachstum 79.2% YoY (stark) | \ud83d\udc8e ROE 28.3% (hohe Profitabilit\u00e4t)",
-      "stop_loss": 9.263178673335485,
-      "target_price": 10.3791685093471,
-      "current_price": 9.775425285339356,
-      "wkn": "ERIC-B.ST",
-      "market_value": 39.101701141357424,
-      "cost_basis": 38.540701141357424,
-      "pnl": 0.5609999999999999,
-      "pnl_percent": 1.455604032584658
+      "quantity": 3,
+      "entry_price": 154.5584183363992,
+      "entry_date": "2026-03-02T17:00:19.089282",
+      "entry_reason": "\ud83d\ude80 EPS-Wachstum 94.5% YoY (stark) | \ud83d\udcb9 Umsatzwachstum 73.2% YoY (stark) | \ud83d\udc8e ROE 101.5% (hohe Profitabilit\u00e4t)",
+      "stop_loss": 142.19374486948726,
+      "target_price": 185.47010200367905,
+      "current_price": 180.30999755859375,
+      "wkn": "NVDA",
+      "market_value": 540.9299926757812,
+      "cost_basis": 463.6752550091976,
+      "pnl": 77.25473766658365,
+      "pnl_percent": 16.661388942364674
     }
   ],
   "trades": [
@@ -115,16 +115,52 @@
       "total_value": 38.540701141357424,
       "fees": 0.0,
       "wkn": "ERIC-B.ST"
+    },
+    {
+      "trade_id": 5,
+      "ticker": "ERIC-B.ST",
+      "action": "SELL",
+      "quantity": 4,
+      "price": 9.73695,
+      "timestamp": "2026-03-02T17:00:08.393364",
+      "reason": "Kursziel \u20ac10.38 erreicht (+1.1%) | P&L: \u20ac0.41 (+1.06%)",
+      "total_value": 38.9478,
+      "fees": 0.0,
+      "wkn": ""
+    },
+    {
+      "trade_id": 6,
+      "ticker": "NVDA",
+      "action": "BUY",
+      "quantity": 3,
+      "price": 154.5584183363992,
+      "timestamp": "2026-03-02T17:00:19.089316",
+      "reason": "\ud83d\ude80 EPS-Wachstum 94.5% YoY (stark) | \ud83d\udcb9 Umsatzwachstum 73.2% YoY (stark) | \ud83d\udc8e ROE 101.5% (hohe Profitabilit\u00e4t)",
+      "total_value": 463.6752550091976,
+      "fees": 0.0,
+      "wkn": "NVDA"
     }
   ],
   "insights": [
     {
       "title": "Trading Cycle Start",
-      "content": "\ud83d\udd0d Analysiere M\u00e4rkte mit 100 Assets | Portfolio: 4/5 Positionen | Cash: \u20ac105.80 (3.6%)",
+      "content": "\ud83d\udd0d Analysiere M\u00e4rkte mit 100 Assets | Portfolio: 4/5 Positionen | Cash: \u20ac479.46 (14.4%)",
       "type": "system",
-      "timestamp": "2026-03-02T16:02:58.961923"
+      "timestamp": "2026-03-02T17:00:06.206802"
+    },
+    {
+      "title": "\ud83d\udd14 Trade-Entscheidung: SELL ERIC-B.ST",
+      "content": "\ud83d\udcc9 **SELL ERIC-B.ST** @ \u20ac104.25\n\ud83d\udcb0 Menge: 4 St\u00fcck = \u20ac417.00\n\ud83d\udcca Entry: \u20ac9.64 | P&L: \u20ac378.46 (+982.0%)\n\ud83c\udff7\ufe0f Typ: TAKE_PROFIT\n\ud83d\udcdd Grund: Kursziel \u20ac10.38 erreicht (+982.0%)",
+      "type": "trade",
+      "timestamp": "2026-03-02T17:00:08.393350"
+    },
+    {
+      "title": "\ud83d\udd14 Trade-Entscheidung: BUY NVDA",
+      "content": "\ud83c\udfaf **BUY NVDA** @ \u20ac154.56\n\ud83d\udcca Score: 13/15 | Confidence: 52%\n\ud83d\udcb0 Menge: 3 St\u00fcck = \u20ac463.68\n\ud83d\udee1\ufe0f Stop-Loss: \u20ac142.19 (-8.0%)\n\ud83c\udfaf Take-Profit: \u20ac185.47 (+20.0%)\n\u2696\ufe0f Risk/Reward: 2.5:1\n\ud83d\udcdd Begr\u00fcndung: \ud83d\ude80 EPS-Wachstum 94.5% YoY (stark) | \ud83d\udcb9 Umsatzwachstum 73.2% YoY (stark) | \ud83d\udc8e ROE 101.5% (hohe Profitabilit\u00e4t)",
+      "type": "trade",
+      "timestamp": "2026-03-02T17:00:18.848647"
     }
   ],
-  "trade_counter": 4,
-  "last_updated": "2026-03-02T16:28:56.484064"
+  "trade_counter": 6,
+  "last_updated": "2026-03-02T17:01:07.579791"
 }
