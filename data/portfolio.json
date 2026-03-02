@@ -1,96 +1,16 @@
 {
   "initial_capital": 3000.0,
-  "cash": 1127.6847303441864,
-  "positions": [
-    {
-      "ticker": "EWU",
-      "asset_type": "Index ETF",
-      "quantity": 9,
-      "entry_price": 48.689998626708984,
-      "entry_date": "2026-03-02T08:14:09.285380",
-      "entry_reason": "\ud83d\udcc8 Preis \u00fcber 20-EMA (kurzfristiger Uptrend) | \ud83d\udcca Preis \u00fcber 50-EMA (mittelfristiger Uptrend) | \ud83d\ude80 Preis \u00fcber 200-EMA (langfristiger Bullmarkt)",
-      "stop_loss": 44.79479873657227,
-      "target_price": 58.42799835205078,
-      "current_price": 48.689998626708984,
-      "market_value": 438.20998764038086,
-      "cost_basis": 438.20998764038086,
-      "pnl": 0.0,
-      "pnl_percent": 0.0
-    },
-    {
-      "ticker": "ALV.DE",
-      "asset_type": "Stock",
-      "quantity": 1,
-      "entry_price": 382.3999938964844,
-      "entry_date": "2026-03-02T08:18:47.821692",
-      "entry_reason": "\ud83d\udcc8 Preis \u00fcber 20-EMA (kurzfristiger Uptrend) | \ud83d\udcca Preis \u00fcber 50-EMA (mittelfristiger Uptrend) | \u26a1 MACD bullish (Momentum positiv)",
-      "stop_loss": 369.7999965122768,
-      "target_price": 407.59998866489957,
-      "current_price": 374.20001220703125,
-      "market_value": 374.20001220703125,
-      "cost_basis": 382.3999938964844,
-      "pnl": -8.199981689453125,
-      "pnl_percent": -2.1443467103383007
-    },
-    {
-      "ticker": "LLY",
-      "asset_type": "Stock",
-      "quantity": 1,
-      "entry_price": 1051.7099609375,
-      "entry_date": "2026-03-02T09:14:19.392535",
-      "entry_reason": "\ud83d\udcc8 Preis \u00fcber 20-EMA (kurzfristiger Uptrend) | \ud83d\udcca Preis \u00fcber 50-EMA (mittelfristiger Uptrend) | \u26a1 MACD bullish (Momentum positiv)",
-      "stop_loss": 984.891185436292,
-      "target_price": 1185.347511939916,
-      "current_price": 1051.7099609375,
-      "market_value": 1051.7099609375,
-      "cost_basis": 1051.7099609375,
-      "pnl": 0.0,
-      "pnl_percent": 0.0
-    }
-  ],
-  "trades": [
-    {
-      "trade_id": 1,
-      "ticker": "EWU",
-      "action": "BUY",
-      "quantity": 9,
-      "price": 48.689998626708984,
-      "timestamp": "2026-03-02T08:14:09.285398",
-      "reason": "\ud83d\udcc8 Preis \u00fcber 20-EMA (kurzfristiger Uptrend) | \ud83d\udcca Preis \u00fcber 50-EMA (mittelfristiger Uptrend) | \ud83d\ude80 Preis \u00fcber 200-EMA (langfristiger Bullmarkt)",
-      "total_value": 438.20998764038086,
-      "fees": 0.0
-    },
-    {
-      "trade_id": 2,
-      "ticker": "ALV.DE",
-      "action": "BUY",
-      "quantity": 1,
-      "price": 382.3999938964844,
-      "timestamp": "2026-03-02T08:18:47.821700",
-      "reason": "\ud83d\udcc8 Preis \u00fcber 20-EMA (kurzfristiger Uptrend) | \ud83d\udcca Preis \u00fcber 50-EMA (mittelfristiger Uptrend) | \u26a1 MACD bullish (Momentum positiv)",
-      "total_value": 382.3999938964844,
-      "fees": 0.0
-    },
-    {
-      "trade_id": 3,
-      "ticker": "LLY",
-      "action": "BUY",
-      "quantity": 1,
-      "price": 1051.7099609375,
-      "timestamp": "2026-03-02T09:14:19.392551",
-      "reason": "\ud83d\udcc8 Preis \u00fcber 20-EMA (kurzfristiger Uptrend) | \ud83d\udcca Preis \u00fcber 50-EMA (mittelfristiger Uptrend) | \u26a1 MACD bullish (Momentum positiv)",
-      "total_value": 1051.7099609375,
-      "fees": 0.0
-    }
-  ],
+  "cash": 3000.0,
+  "positions": [],
+  "trades": [],
   "insights": [
     {
-      "title": "Portfolio Correction",
-      "content": "\ud83d\udd27 Alle MSFT-Trades entfernt (stale data bug) | Cash korrigiert: \u20ac851.47 \u2192 \u20ac1127.68 (+\u20ac276.21)",
+      "title": "Portfolio Reset",
+      "content": "\ud83d\udd04 Alle technisch-basierten Trades entfernt | System bereit f\u00fcr Fundamental-First Strategie",
       "type": "system",
-      "timestamp": "2026-03-02T12:07:17.515335"
+      "timestamp": "2026-03-02T12:18:29.701704"
     }
   ],
-  "trade_counter": 6,
-  "last_updated": "2026-03-02T12:07:17.515329"
+  "trade_counter": 0,
+  "last_updated": "2026-03-02T12:18:29.701698"
 }
