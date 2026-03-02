@@ -1,6 +1,6 @@
 {
   "initial_capital": 3000.0,
-  "cash": 948.3999938964844,
+  "cash": 105.79997253417969,
   "positions": [
     {
       "ticker": "RHM.DE",
@@ -11,11 +11,11 @@
       "entry_reason": "\ud83d\udcc8 EPS-Wachstum 12.6% YoY (solide) | \ud83d\udcbc Umsatzwachstum 13.3% YoY (gesund) | \ud83d\udc8e ROE 22.4% (hohe Profitabilit\u00e4t)",
       "stop_loss": 1567.142857142857,
       "target_price": 1904.2142857142858,
-      "current_price": 1657.5,
-      "market_value": 1657.5,
+      "current_price": 1648.5,
+      "market_value": 1648.5,
       "cost_basis": 1679.5,
-      "pnl": -22.0,
-      "pnl_percent": -1.3099136647811849
+      "pnl": -31.0,
+      "pnl_percent": -1.845787436737124
     },
     {
       "ticker": "ALV.DE",
@@ -26,11 +26,41 @@
       "entry_reason": "\ud83d\udcb0 P/E 13.7 (g\u00fcnstig bewertet) | \ud83d\udc8e ROE 18.2% (hohe Profitabilit\u00e4t) | \ud83d\udc4d Analysten: BUY",
       "stop_loss": 359.2000078473772,
       "target_price": 397.90000261579246,
-      "current_price": 371.70001220703125,
-      "market_value": 371.70001220703125,
+      "current_price": 371.79998779296875,
+      "market_value": 371.79998779296875,
       "cost_basis": 372.1000061035156,
-      "pnl": -0.399993896484375,
-      "pnl_percent": -0.1074963423604727
+      "pnl": -0.300018310546875,
+      "pnl_percent": -0.08062840785426163
+    },
+    {
+      "ticker": "NDX1.DE",
+      "asset_type": "Stock",
+      "quantity": 10,
+      "entry_price": 43.040000915527344,
+      "entry_date": "2026-03-02T14:19:05.231197",
+      "entry_reason": "\ud83d\ude80 EPS-Wachstum 956.5% YoY (stark) | \ud83d\udcb9 Umsatzwachstum 15.8% YoY (stark) | \ud83d\udc8e ROE 24.1% (hohe Profitabilit\u00e4t)",
+      "stop_loss": 39.12571552821568,
+      "target_price": 50.868571690150674,
+      "current_price": 43.439998626708984,
+      "market_value": 434.39998626708984,
+      "cost_basis": 430.40000915527344,
+      "pnl": 3.9999771118164062,
+      "pnl_percent": 0.9293626920842729
+    },
+    {
+      "ticker": "ERIC-B.ST",
+      "asset_type": "Stock",
+      "quantity": 4,
+      "entry_price": 103.05000305175781,
+      "entry_date": "2026-03-02T15:20:35.621912",
+      "entry_reason": "\ud83d\udcb0 P/E 12.1 (g\u00fcnstig bewertet) | \ud83d\ude80 EPS-Wachstum 79.2% YoY (stark) | \ud83d\udc8e ROE 28.3% (hohe Profitabilit\u00e4t)",
+      "stop_loss": 99.07142966134208,
+      "target_price": 111.00714983258929,
+      "current_price": 104.80000305175781,
+      "market_value": 419.20001220703125,
+      "cost_basis": 412.20001220703125,
+      "pnl": 7.0,
+      "pnl_percent": 1.6982047046821012
     }
   ],
   "trades": [
@@ -55,22 +85,38 @@
       "reason": "\ud83d\udcb0 P/E 13.7 (g\u00fcnstig bewertet) | \ud83d\udc8e ROE 18.2% (hohe Profitabilit\u00e4t) | \ud83d\udc4d Analysten: BUY",
       "total_value": 372.1000061035156,
       "fees": 0.0
+    },
+    {
+      "trade_id": 3,
+      "ticker": "NDX1.DE",
+      "action": "BUY",
+      "quantity": 10,
+      "price": 43.040000915527344,
+      "timestamp": "2026-03-02T14:19:05.231208",
+      "reason": "\ud83d\ude80 EPS-Wachstum 956.5% YoY (stark) | \ud83d\udcb9 Umsatzwachstum 15.8% YoY (stark) | \ud83d\udc8e ROE 24.1% (hohe Profitabilit\u00e4t)",
+      "total_value": 430.40000915527344,
+      "fees": 0.0
+    },
+    {
+      "trade_id": 4,
+      "ticker": "ERIC-B.ST",
+      "action": "BUY",
+      "quantity": 4,
+      "price": 103.05000305175781,
+      "timestamp": "2026-03-02T15:20:35.621917",
+      "reason": "\ud83d\udcb0 P/E 12.1 (g\u00fcnstig bewertet) | \ud83d\ude80 EPS-Wachstum 79.2% YoY (stark) | \ud83d\udc8e ROE 28.3% (hohe Profitabilit\u00e4t)",
+      "total_value": 412.20001220703125,
+      "fees": 0.0
     }
   ],
   "insights": [
     {
       "title": "Trading Cycle Start",
-      "content": "\ud83d\udd0d Analysiere M\u00e4rkte mit 100 Assets | Portfolio: 1/5 Positionen | Cash: \u20ac1320.50 (44.0%)",
+      "content": "\ud83d\udd0d Analysiere M\u00e4rkte mit 100 Assets | Portfolio: 4/5 Positionen | Cash: \u20ac105.80 (3.6%)",
       "type": "system",
-      "timestamp": "2026-03-02T13:16:13.449089"
-    },
-    {
-      "title": "\ud83d\udd14 Trade-Entscheidung: BUY ALV.DE",
-      "content": "\ud83c\udfaf **BUY ALV.DE** @ \u20ac372.10\n\ud83d\udcca Score: 12/15 | Confidence: 48%\n\ud83d\udcb0 Menge: 1 St\u00fcck = \u20ac372.10\n\ud83d\udee1\ufe0f Stop-Loss: \u20ac359.20 (-3.5%)\n\ud83c\udfaf Take-Profit: \u20ac397.90 (+6.9%)\n\u2696\ufe0f Risk/Reward: 2.0:1\n\ud83d\udcdd Begr\u00fcndung: \ud83d\udcb0 P/E 13.7 (g\u00fcnstig bewertet) | \ud83d\udc8e ROE 18.2% (hohe Profitabilit\u00e4t) | \ud83d\udc4d Analysten: BUY",
-      "type": "trade",
-      "timestamp": "2026-03-02T13:17:37.276121"
+      "timestamp": "2026-03-02T16:02:58.961923"
     }
   ],
-  "trade_counter": 2,
-  "last_updated": "2026-03-02T13:59:27.327611"
+  "trade_counter": 4,
+  "last_updated": "2026-03-02T16:15:53.478078"
 }
