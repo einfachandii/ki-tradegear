@@ -1,16 +1,50 @@
 {
   "initial_capital": 3000.0,
-  "cash": 3000.0,
-  "positions": [],
-  "trades": [],
-  "insights": [
+  "cash": 1320.5,
+  "positions": [
     {
-      "title": "Portfolio Reset",
-      "content": "\ud83d\udd04 Alle technisch-basierten Trades entfernt | System bereit f\u00fcr Fundamental-First Strategie",
-      "type": "system",
-      "timestamp": "2026-03-02T12:18:29.701704"
+      "ticker": "RHM.DE",
+      "asset_type": "Stock",
+      "quantity": 1,
+      "entry_price": 1679.5,
+      "entry_date": "2026-03-02T12:23:05.685309",
+      "entry_reason": "\ud83d\udcc8 EPS-Wachstum 12.6% YoY (solide) | \ud83d\udcbc Umsatzwachstum 13.3% YoY (gesund) | \ud83d\udc8e ROE 22.4% (hohe Profitabilit\u00e4t)",
+      "stop_loss": 1567.142857142857,
+      "target_price": 1904.2142857142858,
+      "current_price": 1679.0,
+      "market_value": 1679.0,
+      "cost_basis": 1679.5,
+      "pnl": -0.5,
+      "pnl_percent": -0.029770765108663295
     }
   ],
-  "trade_counter": 0,
-  "last_updated": "2026-03-02T12:18:29.701698"
+  "trades": [
+    {
+      "trade_id": 1,
+      "ticker": "RHM.DE",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 1679.5,
+      "timestamp": "2026-03-02T12:23:05.685314",
+      "reason": "\ud83d\udcc8 EPS-Wachstum 12.6% YoY (solide) | \ud83d\udcbc Umsatzwachstum 13.3% YoY (gesund) | \ud83d\udc8e ROE 22.4% (hohe Profitabilit\u00e4t)",
+      "total_value": 1679.5,
+      "fees": 0.0
+    }
+  ],
+  "insights": [
+    {
+      "title": "Trading Cycle Start",
+      "content": "\ud83d\udd0d Analysiere M\u00e4rkte mit 100 Assets | Portfolio: 0/5 Positionen | Cash: \u20ac3000.00 (100.0%)",
+      "type": "system",
+      "timestamp": "2026-03-02T12:21:45.260709"
+    },
+    {
+      "title": "\ud83d\udd14 Trade-Entscheidung: BUY RHM.DE",
+      "content": "\ud83c\udfaf **BUY RHM.DE** @ \u20ac1679.50\n\ud83d\udcca Score: 12/15 | Confidence: 52%\n\ud83d\udcb0 Menge: 1 St\u00fcck = \u20ac1679.50\n\ud83d\udee1\ufe0f Stop-Loss: \u20ac1567.14 (-6.7%)\n\ud83c\udfaf Take-Profit: \u20ac1904.21 (+13.4%)\n\u2696\ufe0f Risk/Reward: 2.0:1\n\ud83d\udcdd Begr\u00fcndung: \ud83d\udcc8 EPS-Wachstum 12.6% YoY (solide) | \ud83d\udcbc Umsatzwachstum 13.3% YoY (gesund) | \ud83d\udc8e ROE 22.4% (hohe Profitabilit\u00e4t)",
+      "type": "trade",
+      "timestamp": "2026-03-02T12:23:05.685304"
+    }
+  ],
+  "trade_counter": 1,
+  "last_updated": "2026-03-02T12:23:05.768589"
 }
