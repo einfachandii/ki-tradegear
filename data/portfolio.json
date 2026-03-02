@@ -11,12 +11,12 @@
       "entry_reason": "\ud83d\udcc8 EPS-Wachstum 12.6% YoY (solide) | \ud83d\udcbc Umsatzwachstum 13.3% YoY (gesund) | \ud83d\udc8e ROE 22.4% (hohe Profitabilit\u00e4t)",
       "stop_loss": 1567.142857142857,
       "target_price": 1904.2142857142858,
-      "current_price": 1631.0,
+      "current_price": 1630.5,
       "wkn": "703000",
-      "market_value": 1631.0,
+      "market_value": 1630.5,
       "cost_basis": 1679.5,
-      "pnl": -48.5,
-      "pnl_percent": -2.887764215540339
+      "pnl": -49.0,
+      "pnl_percent": -2.9175349806490027
     },
     {
       "ticker": "ALV.DE",
@@ -27,12 +27,12 @@
       "entry_reason": "\ud83d\udcb0 P/E 13.7 (g\u00fcnstig bewertet) | \ud83d\udc8e ROE 18.2% (hohe Profitabilit\u00e4t) | \ud83d\udc4d Analysten: BUY",
       "stop_loss": 359.2000078473772,
       "target_price": 397.90000261579246,
-      "current_price": 371.29998779296875,
+      "current_price": 370.8500061035156,
       "wkn": "840400",
-      "market_value": 371.29998779296875,
+      "market_value": 370.8500061035156,
       "cost_basis": 372.1000061035156,
-      "pnl": -0.800018310546875,
-      "pnl_percent": -0.21500088616615487
+      "pnl": -1.25,
+      "pnl_percent": -0.3359311957797331
     },
     {
       "ticker": "NDX1.DE",
@@ -43,12 +43,12 @@
       "entry_reason": "\ud83d\ude80 EPS-Wachstum 956.5% YoY (stark) | \ud83d\udcb9 Umsatzwachstum 15.8% YoY (stark) | \ud83d\udc8e ROE 24.1% (hohe Profitabilit\u00e4t)",
       "stop_loss": 39.12571552821568,
       "target_price": 50.868571690150674,
-      "current_price": 43.68000030517578,
+      "current_price": 42.91999816894531,
       "wkn": "A0D655",
-      "market_value": 436.8000030517578,
+      "market_value": 429.1999816894531,
       "cost_basis": 430.40000915527344,
-      "pnl": 6.399993896484375,
-      "pnl_percent": 1.4869873978500494
+      "pnl": -1.2000274658203125,
+      "pnl_percent": -0.27881678445489627
     },
     {
       "ticker": "NVDA",
@@ -59,12 +59,12 @@
       "entry_reason": "\ud83d\ude80 EPS-Wachstum 94.5% YoY (stark) | \ud83d\udcb9 Umsatzwachstum 73.2% YoY (stark) | \ud83d\udc8e ROE 101.5% (hohe Profitabilit\u00e4t)",
       "stop_loss": 142.19374486948726,
       "target_price": 185.47010200367905,
-      "current_price": 155.0803710156614,
+      "current_price": 156.10852138000106,
       "wkn": "NVDA",
-      "market_value": 465.2411130469842,
+      "market_value": 468.32556414000317,
       "cost_basis": 463.6752550091976,
-      "pnl": 1.5658580377865974,
-      "pnl_percent": 0.3377057586899988
+      "pnl": 4.650309130805567,
+      "pnl_percent": 1.0029237231375054
     }
   ],
   "trades": [
@@ -144,23 +144,11 @@
   "insights": [
     {
       "title": "Trading Cycle Start",
-      "content": "\ud83d\udd0d Analysiere M\u00e4rkte mit 100 Assets | Portfolio: 4/5 Positionen | Cash: \u20ac479.46 (14.4%)",
+      "content": "\ud83d\udd0d Analysiere M\u00e4rkte mit 100 Assets | Portfolio: 4/5 Positionen | Cash: \u20ac54.73 (1.9%)",
       "type": "system",
-      "timestamp": "2026-03-02T17:00:06.206802"
-    },
-    {
-      "title": "\ud83d\udd14 Trade-Entscheidung: SELL ERIC-B.ST",
-      "content": "\ud83d\udcc9 **SELL ERIC-B.ST** @ \u20ac104.25\n\ud83d\udcb0 Menge: 4 St\u00fcck = \u20ac417.00\n\ud83d\udcca Entry: \u20ac9.64 | P&L: \u20ac378.46 (+982.0%)\n\ud83c\udff7\ufe0f Typ: TAKE_PROFIT\n\ud83d\udcdd Grund: Kursziel \u20ac10.38 erreicht (+982.0%)",
-      "type": "trade",
-      "timestamp": "2026-03-02T17:00:08.393350"
-    },
-    {
-      "title": "\ud83d\udd14 Trade-Entscheidung: BUY NVDA",
-      "content": "\ud83c\udfaf **BUY NVDA** @ \u20ac154.56\n\ud83d\udcca Score: 13/15 | Confidence: 52%\n\ud83d\udcb0 Menge: 3 St\u00fcck = \u20ac463.68\n\ud83d\udee1\ufe0f Stop-Loss: \u20ac142.19 (-8.0%)\n\ud83c\udfaf Take-Profit: \u20ac185.47 (+20.0%)\n\u2696\ufe0f Risk/Reward: 2.5:1\n\ud83d\udcdd Begr\u00fcndung: \ud83d\ude80 EPS-Wachstum 94.5% YoY (stark) | \ud83d\udcb9 Umsatzwachstum 73.2% YoY (stark) | \ud83d\udc8e ROE 101.5% (hohe Profitabilit\u00e4t)",
-      "type": "trade",
-      "timestamp": "2026-03-02T17:00:18.848647"
+      "timestamp": "2026-03-02T19:00:05.293388"
     }
   ],
   "trade_counter": 6,
-  "last_updated": "2026-03-02T17:26:15.276673"
+  "last_updated": "2026-03-02T19:03:44.964818"
 }
