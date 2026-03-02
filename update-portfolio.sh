@@ -12,7 +12,7 @@ log() {
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a "$LOG_FILE"
 }
 
-# Prüfe Börsenzeiten (8-22 Uhr, Mo-Fr)
+# Prüfe Börsenzeiten (9-22 Uhr, Mo-Fr)
 hour=$(date +%H)
 day=$(date +%u)  # 1=Monday, 7=Sunday
 
@@ -21,8 +21,8 @@ if [ "$day" -gt 5 ]; then
     exit 0
 fi
 
-if [ "$hour" -lt 8 ] || [ "$hour" -ge 22 ]; then
-    log "Außerhalb Börsenzeiten (8-22 Uhr) - kein Update"
+if [ "$hour" -lt 9 ] || [ "$hour" -ge 22 ]; then
+    log "Außerhalb Börsenzeiten (9-22 Uhr) - kein Update"
     exit 0
 fi
 
@@ -30,12 +30,20 @@ log "Update gestartet (Börsenzeiten aktiv)"
 
 cd "$REPO_DIR" || exit 1
 
+# CRITICAL: Kopiere Backend Portfolio-Daten zum Frontend
+BACKEND_PORTFOLIO="/Users/andreashergett/.dorabot/workspace/musterdepot/data/portfolio.json"
+FRONTEND_PORTFOLIO="$REPO_DIR/data/portfolio.json"
+
+if [ -f "$BACKEND_PORTFOLIO" ]; then
+    log "Kopiere Backend Portfolio → Frontend..."
+    cp "$BACKEND_PORTFOLIO" "$FRONTEND_PORTFOLIO"
+else
+    log "⚠️ Backend Portfolio nicht gefunden: $BACKEND_PORTFOLIO"
+fi
+
 # Update Analytics (Performance Metrics & Benchmarks)
 log "Aktualisiere Performance Analytics..."
 python3 /Users/andreashergett/.dorabot/workspace/musterdepot/backend/update_analytics.py >> "$LOG_FILE" 2>&1
-
-# TODO: Hier wird später das Python Trading-Bot Script aufgerufen
-# python3 trading_bot.py  # Generiert data/portfolio.json
 
 # Prüfe ob Änderungen vorhanden (Portfolio, Benchmarks, Performance Metrics)
 if ! git diff --quiet data/portfolio.json data/benchmarks.json data/performance_metrics.json 2>/dev/null; then
