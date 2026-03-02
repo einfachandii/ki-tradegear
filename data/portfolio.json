@@ -1,6 +1,6 @@
 {
   "initial_capital": 3000.0,
-  "cash": 105.79997253417969,
+  "cash": 479.45927253417966,
   "positions": [
     {
       "ticker": "RHM.DE",
@@ -11,12 +11,12 @@
       "entry_reason": "\ud83d\udcc8 EPS-Wachstum 12.6% YoY (solide) | \ud83d\udcbc Umsatzwachstum 13.3% YoY (gesund) | \ud83d\udc8e ROE 22.4% (hohe Profitabilit\u00e4t)",
       "stop_loss": 1567.142857142857,
       "target_price": 1904.2142857142858,
-      "current_price": 1654.5,
+      "current_price": 1658.5,
       "wkn": "703000",
-      "market_value": 1654.5,
+      "market_value": 1658.5,
       "cost_basis": 1679.5,
-      "pnl": -25.0,
-      "pnl_percent": -1.4885382554331645
+      "pnl": -21.0,
+      "pnl_percent": -1.2503721345638583
     },
     {
       "ticker": "ALV.DE",
@@ -27,12 +27,12 @@
       "entry_reason": "\ud83d\udcb0 P/E 13.7 (g\u00fcnstig bewertet) | \ud83d\udc8e ROE 18.2% (hohe Profitabilit\u00e4t) | \ud83d\udc4d Analysten: BUY",
       "stop_loss": 359.2000078473772,
       "target_price": 397.90000261579246,
-      "current_price": 370.70001220703125,
+      "current_price": 370.3999938964844,
       "wkn": "840400",
-      "market_value": 370.70001220703125,
+      "market_value": 370.3999938964844,
       "cost_basis": 372.1000061035156,
-      "pnl": -1.399993896484375,
-      "pnl_percent": -0.37624129898425923
+      "pnl": -1.70001220703125,
+      "pnl_percent": -0.4568697068385208
     },
     {
       "ticker": "NDX1.DE",
@@ -43,28 +43,28 @@
       "entry_reason": "\ud83d\ude80 EPS-Wachstum 956.5% YoY (stark) | \ud83d\udcb9 Umsatzwachstum 15.8% YoY (stark) | \ud83d\udc8e ROE 24.1% (hohe Profitabilit\u00e4t)",
       "stop_loss": 39.12571552821568,
       "target_price": 50.868571690150674,
-      "current_price": 43.619998931884766,
+      "current_price": 43.68000030517578,
       "wkn": "A0D655",
-      "market_value": 436.19998931884766,
+      "market_value": 436.8000030517578,
       "cost_basis": 430.40000915527344,
-      "pnl": 5.799980163574219,
-      "pnl_percent": 1.3475790056226014
+      "pnl": 6.399993896484375,
+      "pnl_percent": 1.4869873978500494
     },
     {
       "ticker": "ERIC-B.ST",
       "asset_type": "Stock",
       "quantity": 4,
-      "entry_price": 103.05000305175781,
+      "entry_price": 9.635175285339356,
       "entry_date": "2026-03-02T15:20:35.621912",
       "entry_reason": "\ud83d\udcb0 P/E 12.1 (g\u00fcnstig bewertet) | \ud83d\ude80 EPS-Wachstum 79.2% YoY (stark) | \ud83d\udc8e ROE 28.3% (hohe Profitabilit\u00e4t)",
-      "stop_loss": 99.07142966134208,
-      "target_price": 111.00714983258929,
-      "current_price": 104.55000305175781,
+      "stop_loss": 9.263178673335485,
+      "target_price": 10.3791685093471,
+      "current_price": 9.775425285339356,
       "wkn": "ERIC-B.ST",
-      "market_value": 418.20001220703125,
-      "cost_basis": 412.20001220703125,
-      "pnl": 6.0,
-      "pnl_percent": 1.4556040325846582
+      "market_value": 39.101701141357424,
+      "cost_basis": 38.540701141357424,
+      "pnl": 0.5609999999999999,
+      "pnl_percent": 1.455604032584658
     }
   ],
   "trades": [
@@ -109,10 +109,10 @@
       "ticker": "ERIC-B.ST",
       "action": "BUY",
       "quantity": 4,
-      "price": 103.05000305175781,
+      "price": 9.635175285339356,
       "timestamp": "2026-03-02T15:20:35.621917",
       "reason": "\ud83d\udcb0 P/E 12.1 (g\u00fcnstig bewertet) | \ud83d\ude80 EPS-Wachstum 79.2% YoY (stark) | \ud83d\udc8e ROE 28.3% (hohe Profitabilit\u00e4t)",
-      "total_value": 412.20001220703125,
+      "total_value": 38.540701141357424,
       "fees": 0.0,
       "wkn": "ERIC-B.ST"
     }
@@ -126,5 +126,5 @@
     }
   ],
   "trade_counter": 4,
-  "last_updated": "2026-03-02T16:24:03.332476"
+  "last_updated": "2026-03-02T16:28:56.484064"
 }
