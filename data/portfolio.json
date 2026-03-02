@@ -59,12 +59,12 @@
       "entry_reason": "\ud83d\ude80 EPS-Wachstum 94.5% YoY (stark) | \ud83d\udcb9 Umsatzwachstum 73.2% YoY (stark) | \ud83d\udc8e ROE 101.5% (hohe Profitabilit\u00e4t)",
       "stop_loss": 142.19374486948726,
       "target_price": 185.47010200367905,
-      "current_price": 156.10852138000106,
+      "current_price": 156.00915856872103,
       "wkn": "NVDA",
-      "market_value": 468.32556414000317,
+      "market_value": 468.0274757061631,
       "cost_basis": 463.6752550091976,
-      "pnl": 4.650309130805567,
-      "pnl_percent": 1.0029237231375054
+      "pnl": 4.352220696965503,
+      "pnl_percent": 0.9386355320771154
     }
   ],
   "trades": [
@@ -150,5 +150,5 @@
     }
   ],
   "trade_counter": 6,
-  "last_updated": "2026-03-02T19:03:44.964818"
+  "last_updated": "2026-03-02T19:14:10.048388"
 }
