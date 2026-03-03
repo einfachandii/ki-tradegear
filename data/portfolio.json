@@ -1,6 +1,6 @@
 {
   "initial_capital": 3000.0,
-  "cash": 552.115283183635,
+  "cash": 209.9554771435487,
   "positions": [
     {
       "ticker": "RHM.DE",
@@ -11,12 +11,12 @@
       "entry_reason": "\ud83d\udcc8 EPS-Wachstum 12.6% YoY (solide) | \ud83d\udcbc Umsatzwachstum 13.3% YoY (gesund) | \ud83d\udc8e ROE 22.4% (hohe Profitabilit\u00e4t)",
       "stop_loss": 1567.142857142857,
       "target_price": 1904.2142857142858,
-      "current_price": 1586.5,
+      "current_price": 1585.0,
       "wkn": "703000",
-      "market_value": 1586.5,
+      "market_value": 1585.0,
       "cost_basis": 1679.5,
-      "pnl": -93.0,
-      "pnl_percent": -5.537362310211372
+      "pnl": -94.5,
+      "pnl_percent": -5.626674605537362
     },
     {
       "ticker": "NDX1.DE",
@@ -27,12 +27,12 @@
       "entry_reason": "\ud83d\ude80 EPS-Wachstum 956.5% YoY (stark) | \ud83d\udcb9 Umsatzwachstum 15.8% YoY (stark) | \ud83d\udc8e ROE 24.1% (hohe Profitabilit\u00e4t)",
       "stop_loss": 39.12571552821568,
       "target_price": 50.868571690150674,
-      "current_price": 40.900001525878906,
+      "current_price": 41.0,
       "wkn": "A0D655",
-      "market_value": 409.00001525878906,
+      "market_value": 410.0,
       "cost_basis": 430.40000915527344,
-      "pnl": -21.399993896484375,
-      "pnl_percent": -4.972117435240109
+      "pnl": -20.400009155273438,
+      "pnl_percent": -4.739778978005044
     },
     {
       "ticker": "NVDA",
@@ -43,12 +43,28 @@
       "entry_reason": "\ud83d\ude80 EPS-Wachstum 94.5% YoY (stark) | \ud83d\udcb9 Umsatzwachstum 73.2% YoY (stark) | \ud83d\udc8e ROE 101.5% (hohe Profitabilit\u00e4t)",
       "stop_loss": 142.49982736889697,
       "target_price": 185.86934004638735,
-      "current_price": 153.89405018939686,
+      "current_price": 154.47010517652097,
       "wkn": "NVDA",
-      "market_value": 307.78810037879373,
+      "market_value": 308.94021035304195,
       "cost_basis": 309.7822334106456,
-      "pnl": -1.9941330318518453,
-      "pnl_percent": -0.643720916431135
+      "pnl": -0.8420230576036261,
+      "pnl_percent": -0.27181128121296905
+    },
+    {
+      "ticker": "MSFT",
+      "asset_type": "Stock",
+      "quantity": 1,
+      "entry_price": 342.1598060400863,
+      "entry_date": "2026-03-03T17:01:30.828599",
+      "entry_reason": "\ud83d\udcb5 P/E 24.8 (fair bewertet) | \ud83d\ude80 EPS-Wachstum 59.5% YoY (stark) | \ud83d\udcb9 Umsatzwachstum 16.7% YoY (stark)",
+      "stop_loss": 314.78702155687944,
+      "target_price": 410.59176724810357,
+      "current_price": 345.6352247667149,
+      "wkn": "MSFT",
+      "market_value": 345.6352247667149,
+      "cost_basis": 342.1598060400863,
+      "pnl": 3.475418726628561,
+      "pnl_percent": 1.0157296869116743
     }
   ],
   "trades": [
@@ -183,28 +199,34 @@
       "total_value": 309.7822334106456,
       "fees": 0.0,
       "wkn": "NVDA"
+    },
+    {
+      "trade_id": 12,
+      "ticker": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 342.1598060400863,
+      "timestamp": "2026-03-03T17:01:30.828627",
+      "reason": "\ud83d\udcb5 P/E 24.8 (fair bewertet) | \ud83d\ude80 EPS-Wachstum 59.5% YoY (stark) | \ud83d\udcb9 Umsatzwachstum 16.7% YoY (stark)",
+      "total_value": 342.1598060400863,
+      "fees": 0.0,
+      "wkn": "MSFT"
     }
   ],
   "insights": [
     {
       "title": "Trading Cycle Start",
-      "content": "\ud83d\udd0d Analysiere M\u00e4rkte mit 100 Assets | Portfolio: 3/5 Positionen | Cash: \u20ac520.87 (18.1%)",
+      "content": "\ud83d\udd0d Analysiere M\u00e4rkte mit 100 Assets | Portfolio: 3/5 Positionen | Cash: \u20ac552.12 (19.4%)",
       "type": "system",
-      "timestamp": "2026-03-03T16:00:05.646324"
+      "timestamp": "2026-03-03T17:00:05.242512"
     },
     {
-      "title": "\ud83d\udd14 Trade-Entscheidung: SELL MSFT",
-      "content": "\ud83d\udcc9 **SELL MSFT** @ \u20ac341.03\n\ud83d\udcb0 Menge: 1 St\u00fcck = \u20ac341.03\n\ud83d\udcca Entry: \u20ac296.42 | P&L: \u20ac44.62 (+15.1%)\n\ud83c\udff7\ufe0f Typ: TECHNICAL_EXIT\n\ud83d\udcdd Grund: Preis unter 50-Tage-Linie (Trend gebrochen), Gewinn sichern | MACD bearish (Momentum nachlassend)",
+      "title": "\ud83d\udd14 Trade-Entscheidung: BUY MSFT",
+      "content": "\ud83c\udfaf **BUY MSFT** @ \u20ac342.16\n\ud83d\udcca Score: 12/15 | Confidence: 52%\n\ud83d\udcb0 Menge: 1 St\u00fcck = \u20ac342.16\n\ud83d\udee1\ufe0f Stop-Loss: \u20ac314.79 (-8.0%)\n\ud83c\udfaf Take-Profit: \u20ac410.59 (+20.0%)\n\u2696\ufe0f Risk/Reward: 2.5:1\n\ud83d\udcdd Begr\u00fcndung: \ud83d\udcb5 P/E 24.8 (fair bewertet) | \ud83d\ude80 EPS-Wachstum 59.5% YoY (stark) | \ud83d\udcb9 Umsatzwachstum 16.7% YoY (stark)",
       "type": "trade",
-      "timestamp": "2026-03-03T16:00:07.425331"
-    },
-    {
-      "title": "\ud83d\udd14 Trade-Entscheidung: BUY NVDA",
-      "content": "\ud83c\udfaf **BUY NVDA** @ \u20ac154.89\n\ud83d\udcca Score: 14/15 | Confidence: 61%\n\ud83d\udcb0 Menge: 2 St\u00fcck = \u20ac309.78\n\ud83d\udee1\ufe0f Stop-Loss: \u20ac142.50 (-8.0%)\n\ud83c\udfaf Take-Profit: \u20ac185.87 (+20.0%)\n\u2696\ufe0f Risk/Reward: 2.5:1\n\ud83d\udcdd Begr\u00fcndung: \ud83d\ude80 EPS-Wachstum 94.5% YoY (stark) | \ud83d\udcb9 Umsatzwachstum 73.2% YoY (stark) | \ud83d\udc8e ROE 101.5% (hohe Profitabilit\u00e4t)",
-      "type": "trade",
-      "timestamp": "2026-03-03T16:00:30.504836"
+      "timestamp": "2026-03-03T17:01:30.417357"
     }
   ],
-  "trade_counter": 11,
-  "last_updated": "2026-03-03T16:39:40.047317"
+  "trade_counter": 12,
+  "last_updated": "2026-03-03T18:35:19.044708"
 }
