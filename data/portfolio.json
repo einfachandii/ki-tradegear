@@ -1,6 +1,6 @@
 {
   "initial_capital": 3000.0,
-  "cash": 54.73181752498215,
+  "cash": 410.1318114214665,
   "positions": [
     {
       "ticker": "RHM.DE",
@@ -11,28 +11,12 @@
       "entry_reason": "\ud83d\udcc8 EPS-Wachstum 12.6% YoY (solide) | \ud83d\udcbc Umsatzwachstum 13.3% YoY (gesund) | \ud83d\udc8e ROE 22.4% (hohe Profitabilit\u00e4t)",
       "stop_loss": 1567.142857142857,
       "target_price": 1904.2142857142858,
-      "current_price": 1630.5,
+      "current_price": 1593.0,
       "wkn": "703000",
-      "market_value": 1630.5,
+      "market_value": 1593.0,
       "cost_basis": 1679.5,
-      "pnl": -49.0,
-      "pnl_percent": -2.9175349806490027
-    },
-    {
-      "ticker": "ALV.DE",
-      "asset_type": "Stock",
-      "quantity": 1,
-      "entry_price": 372.1000061035156,
-      "entry_date": "2026-03-02T13:17:37.276132",
-      "entry_reason": "\ud83d\udcb0 P/E 13.7 (g\u00fcnstig bewertet) | \ud83d\udc8e ROE 18.2% (hohe Profitabilit\u00e4t) | \ud83d\udc4d Analysten: BUY",
-      "stop_loss": 359.2000078473772,
-      "target_price": 397.90000261579246,
-      "current_price": 370.8500061035156,
-      "wkn": "840400",
-      "market_value": 370.8500061035156,
-      "cost_basis": 372.1000061035156,
-      "pnl": -1.25,
-      "pnl_percent": -0.3359311957797331
+      "pnl": -86.5,
+      "pnl_percent": -5.1503423637987495
     },
     {
       "ticker": "NDX1.DE",
@@ -43,12 +27,12 @@
       "entry_reason": "\ud83d\ude80 EPS-Wachstum 956.5% YoY (stark) | \ud83d\udcb9 Umsatzwachstum 15.8% YoY (stark) | \ud83d\udc8e ROE 24.1% (hohe Profitabilit\u00e4t)",
       "stop_loss": 39.12571552821568,
       "target_price": 50.868571690150674,
-      "current_price": 42.91999816894531,
+      "current_price": 41.70000076293945,
       "wkn": "A0D655",
-      "market_value": 429.1999816894531,
+      "market_value": 417.00000762939453,
       "cost_basis": 430.40000915527344,
-      "pnl": -1.2000274658203125,
-      "pnl_percent": -0.27881678445489627
+      "pnl": -13.400001525878906,
+      "pnl_percent": -3.113383187927547
     },
     {
       "ticker": "NVDA",
@@ -59,12 +43,12 @@
       "entry_reason": "\ud83d\ude80 EPS-Wachstum 94.5% YoY (stark) | \ud83d\udcb9 Umsatzwachstum 73.2% YoY (stark) | \ud83d\udc8e ROE 101.5% (hohe Profitabilit\u00e4t)",
       "stop_loss": 142.19374486948726,
       "target_price": 185.47010200367905,
-      "current_price": 156.00915856872103,
+      "current_price": 156.19256989487354,
       "wkn": "NVDA",
-      "market_value": 468.0274757061631,
+      "market_value": 468.57770968462063,
       "cost_basis": 463.6752550091976,
-      "pnl": 4.352220696965503,
-      "pnl_percent": 0.9386355320771154
+      "pnl": 4.90245467542303,
+      "pnl_percent": 1.0573034947327054
     }
   ],
   "trades": [
@@ -139,16 +123,28 @@
       "total_value": 463.6752550091976,
       "fees": 0.0,
       "wkn": "NVDA"
+    },
+    {
+      "trade_id": 7,
+      "ticker": "ALV.DE",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 355.3999938964844,
+      "timestamp": "2026-03-03T10:00:06.962985",
+      "reason": "Stop-Loss bei \u20ac359.20 erreicht (Risk Management) | P&L: \u20ac-16.70 (-4.49%)",
+      "total_value": 355.3999938964844,
+      "fees": 0.0,
+      "wkn": ""
     }
   ],
   "insights": [
     {
       "title": "Trading Cycle Start",
-      "content": "\ud83d\udd0d Analysiere M\u00e4rkte mit 100 Assets | Portfolio: 4/5 Positionen | Cash: \u20ac54.73 (1.9%)",
+      "content": "\ud83d\udd0d Analysiere M\u00e4rkte mit 100 Assets | Portfolio: 3/5 Positionen | Cash: \u20ac410.13 (14.2%)",
       "type": "system",
-      "timestamp": "2026-03-02T19:00:05.293388"
+      "timestamp": "2026-03-03T12:00:05.453068"
     }
   ],
-  "trade_counter": 6,
-  "last_updated": "2026-03-02T19:14:10.048388"
+  "trade_counter": 7,
+  "last_updated": "2026-03-03T12:03:42.349080"
 }
