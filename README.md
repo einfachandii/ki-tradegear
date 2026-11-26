@@ -6,11 +6,6 @@ Autonomes Trading-System mit 3.000€ Startkapital.
 
 **URL:** [https://andreashergett.github.io/musterdepot-ki-agent/](https://andreashergett.github.io/musterdepot-ki-agent/)
 
-## 📈 Watchlist
-
-Watchlist im TradingView-Stil mit Chart und Performance-Auswertung (Tag, Woche, Monat, YTD, Jahre): siehe [`watchlist/`](watchlist/README.md).
-Lokal starten mit `node watchlist/server.js` → http://localhost:8080
-
 ## Features
 
 - ✅ **Autonomes Trading**: KI führt selbstständig Analysen durch und handelt
