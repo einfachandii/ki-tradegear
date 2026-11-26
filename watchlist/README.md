@@ -16,9 +16,9 @@ Eine Watchlist im Stil von TradingView: alle Kurse auf einen Blick, Klick auf ei
 - Export/Import als JSON, um die Listen auf andere Geräte zu übertragen
 
 **Detailansicht (Klick auf einen Wert)**
-- Chart (Linie oder Kerzen) für 1T, 5T, 1M, 3M, 6M, YTD, 1J, 5J, Max, mit TradingView Lightweight Charts
+- Chart (Linie oder Kerzen) für 1T, 5T, 1M, 3M, 6M, YTD, 1J, 5J, 10J, mit TradingView Lightweight Charts
 - Performance: **Heute, 1 Woche, 1/3/6 Monate, seit Jahresbeginn, 1/3/5 Jahre**
-- Kennzahlen: Vortag, Eröffnung, Tagesspanne, 52-Wochen-Hoch/-Tief, Abstand zum Allzeithoch
+- Kennzahlen: Vortag, Eröffnung, Tagesspanne, 52-Wochen-Hoch/-Tief, Abstand zum 10-Jahres-Hoch
 - Jahresperformance je Kalenderjahr und Monats-Heatmap
 
 Tastatur: ↑/↓ wechselt den Wert, Entf entfernt ihn.

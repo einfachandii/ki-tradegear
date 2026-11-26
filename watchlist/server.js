@@ -19,7 +19,8 @@ const os = require('os');
 const PORT = Number(process.env.PORT) || 8080;
 const HOST = process.env.HOST || '0.0.0.0';
 const ROOT = __dirname;
-const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36';
+// Hinweis: Eine vollständige Browser-Kennung wird von Yahoo mit 429 abgelehnt, "Mozilla/5.0" funktioniert.
+const UA = 'Mozilla/5.0';
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -89,6 +90,23 @@ async function handleApi(req, res, url) {
         const q = `/v8/finance/chart/${encodeURIComponent(symbol)}?range=${range}&interval=${interval}&includePrePost=false&events=div%2Csplit`;
         const r = await yahoo(q);
         cacheSet(key, r.status, r.body, r.status === 200 ? ttlFor(range, interval) : 30e3);
+        hit = cacheGet(key) || r;
+      }
+      return send(res, hit.status, hit.body, 'application/json');
+    }
+
+    if (url.pathname === '/api/spark') {
+      const symbols = (url.searchParams.get('symbols') || '').split(',').filter(Boolean);
+      const range = url.searchParams.get('range') || '1y';
+      const interval = url.searchParams.get('interval') || '1d';
+      if (!symbols.length || symbols.length > 20 || !symbols.every(x => SAFE_SYMBOL.test(x)) || !SAFE_RANGE.test(range) || !SAFE_INTERVAL.test(interval)) {
+        return send(res, 400, '{"error":"ungültige Parameter"}', 'application/json');
+      }
+      const key = `spark:${symbols.join(',')}:${range}:${interval}`;
+      let hit = cacheGet(key);
+      if (!hit) {
+        const r = await yahoo(`/v7/finance/spark?symbols=${symbols.map(encodeURIComponent).join(',')}&range=${range}&interval=${interval}`);
+        cacheSet(key, r.status, r.body, r.status === 200 ? 50e3 : 20e3);
         hit = cacheGet(key) || r;
       }
       return send(res, hit.status, hit.body, 'application/json');

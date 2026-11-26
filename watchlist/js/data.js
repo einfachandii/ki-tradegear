@@ -4,7 +4,6 @@
 
   const YAHOO = 'https://query1.finance.yahoo.com';
   const PUBLIC_PROXIES = [
-    'https://corsproxy.io/?url={url}',
     'https://api.allorigins.win/raw?url={url}',
     'https://api.codetabs.com/v1/proxy?quest={url}',
   ];
@@ -56,7 +55,7 @@
       if (!settings.proxyUrl) throw new Error('Keine Proxy-URL hinterlegt (Einstellungen)');
       resolvedSource = 'custom';
       const tpl = settings.proxyUrl.includes('{url}') ? settings.proxyUrl : settings.proxyUrl + (settings.proxyUrl.includes('?') ? '&' : '?') + 'url={url}';
-      return fetchJson(withProxy(tpl, YAHOO + yahooPath));
+      return fetchJson(withProxy(tpl, YAHOO + yahooPath), 25000);
     }
     // auto / proxy: öffentliche CORS-Proxys der Reihe nach
     const order = resolvedSource && resolvedSource.startsWith('proxy:')
@@ -65,7 +64,7 @@
     let lastErr;
     for (const tpl of order) {
       try {
-        const j = await fetchJson(withProxy(tpl, YAHOO + yahooPath));
+        const j = await fetchJson(withProxy(tpl, YAHOO + yahooPath), 25000);
         resolvedSource = 'proxy:' + tpl;
         return j;
       } catch (e) {
@@ -99,6 +98,12 @@
         v: (q.volume && q.volume[i]) || 0,
       });
     }
+    // Yahoo liefert den laufenden Tag oft ohne Schlusskurs (null) – mit dem aktuellen Kurs ergänzen
+    const li = ts.length - 1, price = m.regularMarketPrice;
+    if (li >= 0 && price != null && (q.close == null || q.close[li] == null) && (!bars.length || bars[bars.length - 1].t !== ts[li])) {
+      const o = q.open && q.open[li] != null ? q.open[li] : price;
+      bars.push({ t: ts[li], o, h: Math.max(o, price, m.regularMarketDayHigh || price), l: Math.min(o, price, m.regularMarketDayLow || price), c: price, v: m.regularMarketVolume || 0 });
+    }
     const tp = m.currentTradingPeriod && m.currentTradingPeriod.regular;
     return {
       symbol: m.symbol || symbol,
@@ -121,7 +126,9 @@
   }
 
   // Lokales Datum (Börsenzeitzone) als 'YYYY-MM-DD'
-  function dayKey(t, off) { return new Date((t + (off || 0)) * 1000).toISOString().slice(0, 10); }
+  // +90 Min.: Yahoo-Zeitstempel liegen oft auf Mitternacht und der gmtoffset gilt nur für die aktuelle
+  // Jahreszeit – ohne Puffer rutschen Sommer-Balken (Zeitumstellung) auf den Vortag/Vormonat.
+  function dayKey(t, off) { return new Date((t + (off || 0) + 5400) * 1000).toISOString().slice(0, 10); }
 
   // Vortagesschluss aus Tagesbalken bestimmen
   function prevCloseFrom(d) {
@@ -145,9 +152,7 @@
     return normalizeChart(json, symbol);
   }
 
-  // Kurs + Vortag (leichtgewichtig)
-  async function quote(symbol) {
-    const d = await chart(symbol, '5d', '1d');
+  function toQuote(d) {
     const prev = prevCloseFrom(d);
     return {
       symbol: d.symbol, name: d.name, shortName: d.shortName, currency: d.currency, exchange: d.exchange,
@@ -157,6 +162,44 @@
       dayHigh: d.dayHigh, dayLow: d.dayLow, volume: d.volume, w52High: d.w52High, w52Low: d.w52Low,
       tradingStart: d.tradingStart, tradingEnd: d.tradingEnd, gmtoffset: d.gmtoffset,
     };
+  }
+
+  // Kurs + Vortag (ein Symbol)
+  async function quote(symbol) {
+    return toQuote(await chart(symbol, '5d', '1d'));
+  }
+
+  /**
+   * Viele Symbole auf einmal (Yahoo "spark", max. 20 pro Abfrage) inkl. 1 Jahr Tagesschlusskurse.
+   * @returns {Map<string, {quote, bars, off} | {error}>}
+   */
+  async function batch(symbols, onPart) {
+    const out = new Map();
+    const chunks = [];
+    for (let i = 0; i < symbols.length; i += 20) chunks.push(symbols.slice(i, i + 20));
+    await Promise.all(chunks.map(async chunk => {
+      let part;
+      if (settings.source === 'demo') {
+        resolvedSource = 'demo';
+        part = await Promise.all(chunk.map(s => Demo.chart(s, '1y', '1d').then(d => [s, d], e => [s, e])));
+      } else {
+        const list = chunk.map(encodeURIComponent).join(',');
+        const qs = `symbols=${list}&range=1y&interval=1d`;
+        const json = await yahooGet(`api/spark?${qs}`, `/v7/finance/spark?${qs}`);
+        const res = (json && json.spark && json.spark.result) || [];
+        const bySym = new Map();
+        for (const x of res) {
+          try { bySym.set(x.symbol, normalizeChart({ chart: { result: [x.response && x.response[0]] } }, x.symbol)); }
+          catch (e) { bySym.set(x.symbol, e); }
+        }
+        part = chunk.map(s => [s, bySym.get(s) || new Error(`Symbol ${s} nicht gefunden`)]);
+      }
+      for (const [s, d] of part) {
+        out.set(s, d instanceof Error ? { error: d.message } : { quote: toQuote(d), bars: d.bars, off: d.gmtoffset });
+      }
+      if (onPart) onPart(out);
+    }));
+    return out;
   }
 
   async function search(q) {
@@ -284,5 +327,5 @@
     return { chart, search };
   })();
 
-  window.TGData = { configure, chart, quote, search, sourceLabel, dayKey, prevCloseFrom, hasServer };
+  window.TGData = { configure, chart, quote, batch, search, sourceLabel, dayKey, prevCloseFrom, hasServer };
 })();

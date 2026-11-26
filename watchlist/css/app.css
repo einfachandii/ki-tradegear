@@ -185,6 +185,10 @@ code { font-family: var(--mono); font-size: .92em; background: var(--hover); pad
 .dragging { opacity: .9; box-shadow: var(--shadow); background: var(--panel) !important; z-index: 5; position: relative; }
 .drop-line { height: 2px; background: var(--accent); margin: 0 8px; }
 
+.wl-notice { margin: 4px 10px 8px; padding: 10px 12px; border-radius: var(--radius); background: var(--down-soft); font-size: 12.5px; line-height: 1.45; }
+.wl-notice b { color: var(--down); }
+.notice-actions { display: flex; gap: 8px; margin-top: 8px; }
+.notice-actions .btn { padding: 4px 12px; font-size: 12.5px; }
 .wl-empty { padding: 32px 20px; text-align: center; color: var(--muted); }
 .wl-empty .btn { margin-top: 12px; }
 

@@ -685,7 +685,6 @@
     // Ergebnisliste aktualisieren (Häkchen)
     showResults(addResultsData, addResults.querySelector('.res-head') ? addResults.querySelector('.res-head').textContent : '');
     refreshSymbols([symbol]);
-    if (state.settings.columns.length) refreshExt([symbol]);
   }
 
   // ======================================================================
@@ -762,37 +761,55 @@
   // ======================================================================
   // Aktualisierung
   // ======================================================================
-  async function pool(items, n, fn) {
-    const queue = items.slice();
-    await Promise.all(Array.from({ length: Math.min(n, queue.length) }, async () => {
-      while (queue.length) await fn(queue.shift());
-    }));
-  }
-
+  // Alle Symbole gebündelt laden (Kurs + 1 Jahr Tagesschlusskurse für 1W/YTD/1J)
   async function refreshSymbols(symbols) {
     let ok = 0, fail = 0;
-    await pool(symbols, 4, async s => {
-      try {
-        const q = await D.quote(s);
-        quotes.set(s, q); qErrors.delete(s); ok++;
-      } catch (err) {
-        qErrors.set(s, err.message); fail++; lastError = err.message;
-      }
-    });
+    if (!symbols.length) return { ok, fail };
+    try {
+      const res = await D.batch(symbols, part => {
+        for (const [s, r] of part) applyResult(s, r);
+        render();
+      });
+      for (const [s, r] of res) { if (r.error) fail++; else ok++; applyResult(s, r); }
+      if (!ok && fail) lastError = [...res.values()][0].error;
+    } catch (err) {
+      fail = symbols.length; lastError = err.message;
+      // gespeicherte Kurse behalten; nur Werte ohne Kurs als Fehler markieren
+      for (const s of symbols) if (!quotes.has(s)) qErrors.set(s, err.message);
+    }
+    saveCache();
     render();
     return { ok, fail };
   }
-
-  async function refreshExt(symbols, force) {
-    const need = symbols.filter(s => force || !ext.has(s) || Date.now() - ext.get(s).at > 30 * 60e3);
-    await pool(need, 3, async s => {
-      try {
-        const d = await D.chart(s, '1y', '1d');
-        ext.set(s, { bars: d.bars, off: d.gmtoffset, at: Date.now() });
-      } catch (_) { /* Spalte bleibt leer */ }
-    });
-    if (need.length) render();
+  function applyResult(s, r) {
+    if (r.error) { if (!quotes.has(s)) qErrors.set(s, r.error); return; }
+    quotes.set(s, r.quote); qErrors.delete(s);
+    ext.set(s, { bars: r.bars, off: r.off, at: Date.now() });
   }
+
+  // Zuletzt geladene Kurse speichern, damit die Liste beim Öffnen sofort gefüllt ist
+  const CACHE_KEY = 'tradegear-quotes-cache-v1';
+  function saveCache() {
+    try {
+      const data = { at: lastUpdate ? lastUpdate.getTime() : Date.now(), quotes: {}, ext: {} };
+      for (const [k, q] of quotes) data.quotes[k] = q;
+      for (const [k, e] of ext) data.ext[k] = { off: e.off, t: e.bars.map(b => b.t), c: e.bars.map(b => +b.c.toPrecision(7)) };
+      localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+    } catch (_) { /* voll / privat */ }
+  }
+  function loadCache() {
+    try {
+      const data = JSON.parse(localStorage.getItem(CACHE_KEY));
+      if (!data || !data.quotes) return;
+      for (const k in data.quotes) quotes.set(k, data.quotes[k]);
+      for (const k in data.ext || {}) {
+        const e = data.ext[k];
+        ext.set(k, { off: e.off, at: 0, bars: e.t.map((t, i) => ({ t, o: e.c[i], h: e.c[i], l: e.c[i], c: e.c[i], v: 0 })) });
+      }
+      cachedAt = data.at ? new Date(data.at) : null;
+    } catch (_) { /* ignorieren */ }
+  }
+  let cachedAt = null;
 
   async function refreshAll(force) {
     if (refreshing) return;
@@ -802,10 +819,10 @@
     const syms = listSymbols();
     try {
       const { ok, fail } = await refreshSymbols(syms);
-      if (ok || !syms.length) lastUpdate = new Date();
+      if (ok || !syms.length) { lastUpdate = new Date(); cachedAt = null; }
       if (!ok && fail) lastError = lastError || 'Keine Daten';
       else if (ok) lastError = null;
-      if (state.settings.columns.length) await refreshExt(syms, false);
+      renderNotice();
       if (state.selected) updateDetailLive();
     } finally {
       refreshing = false;
@@ -831,11 +848,12 @@
   function setStatus() {
     const dot = $('#statusDot'), txt = $('#statusText');
     dot.className = 'dot ' + (refreshing ? 'busy' : lastError ? 'err' : lastUpdate ? 'ok' : '');
-    if (refreshing && !lastUpdate) { txt.textContent = 'Lade Kurse…'; return; }
+    if (refreshing && !lastUpdate) { txt.textContent = cachedAt ? 'Aktualisiere…' : 'Lade Kurse…'; return; }
     const parts = [];
     if (lastError && !refreshing) parts.push('Fehler: ' + lastError);
     parts.push(D.sourceLabel());
     if (lastUpdate) parts.push(timeFmt.format(lastUpdate));
+    else if (cachedAt) parts.push('gespeichert ' + dtFmt.format(cachedAt));
     if (nextUpdate) {
       const s = Math.max(0, Math.round((nextUpdate - Date.now()) / 1000));
       parts.push(`nächste in ${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`);
@@ -844,6 +862,20 @@
     $('#status').title = lastError ? `Letzter Fehler: ${lastError}\nTipp: Starte "node server.js" im Ordner watchlist für eine stabile Datenquelle.` : 'Datenquelle & letzte Aktualisierung';
   }
   setInterval(setStatus, 1000);
+
+  function renderNotice() {
+    const el = $('#wlNotice');
+    const src = state.settings.source;
+    if (!lastError || !listSymbols().length) { el.hidden = true; return; }
+    const proxyMode = src === 'auto' || src === 'proxy';
+    el.hidden = false;
+    el.innerHTML = `<b>Kurse konnten nicht geladen werden.</b> ${esc(lastError)}<br>` + (proxyMode
+      ? `Die kostenlosen öffentlichen Zwischenserver sind gerade nicht erreichbar. Zuverlässig wird es mit einem eigenen kostenlosen Zwischenserver (ca. 5 Min. Einrichtung) oder mit <code>node server.js</code> auf dem Mac.`
+      : `Prüfe die Datenquelle in den Einstellungen.`) +
+      `<div class="notice-actions"><button type="button" class="btn" id="nRetry">Erneut versuchen</button><button type="button" class="btn ghost" id="nSettings">Einstellungen</button></div>`;
+    $('#nRetry').onclick = () => refreshAll(true);
+    $('#nSettings').onclick = openSettings;
+  }
 
   // ======================================================================
   // Detailansicht
@@ -858,7 +890,7 @@
     { id: 'YTD', label: 'YTD', perf: 'YTD', ytd: true },
     { id: '1J', label: '1J', perf: '1J', years: 1 },
     { id: '5J', label: '5J', perf: '5J', years: 5 },
-    { id: 'MAX', label: 'Max', perf: 'MAX', max: true },
+    { id: 'MAX', label: '10J', perf: 'MAX', max: true },
   ];
   const mobile = () => innerWidth <= 900;
 
@@ -921,7 +953,7 @@
       else {
         const [d5, mx, qq] = await Promise.all([
           D.chart(symbol, '5y', '1d'),
-          D.chart(symbol, 'max', '1mo').catch(() => null),
+          D.chart(symbol, '10y', '1mo').catch(() => null), // 'max' liefert bei Yahoo nur Quartalswerte
           q ? Promise.resolve(q) : D.quote(symbol).catch(() => null),
         ]);
         daily = d5; monthly = mx; q = qq || q;
@@ -971,7 +1003,7 @@
     const open = isOpen(q);
     $('#dHead').innerHTML = `<div class="d-head">
       <div class="d-title">${logoHtml(it)}<div>
-        <h1>${esc(q ? q.name : displaySym(it))}</h1>
+        <h1>${esc(it.label || NICE[it.symbol] || (s.daily && s.daily.name) || (q ? q.name : displaySym(it)))}</h1>
         <div class="meta"><span>${esc(it.symbol)}</span>${q ? `<span>${esc(q.exchange)}</span><span>${esc(TYPE_DE[q.type] || q.type || '')}</span>
           <span class="badge"><i class="mkt${open ? ' open' : ''}"></i>${open ? 'Markt geöffnet' : 'Markt geschlossen'}</span>` : ''}</div>
       </div></div>
@@ -1030,8 +1062,8 @@
           ${bar('52-Wochen-Spanne', w52l, w52h, q.price)}
         </div>
         <div>
-          ${row('Allzeithoch' + (ath ? ` <small>(${s.monthly ? 'seit ' + new Date(s.monthly.bars[0].t * 1000).getFullYear() : '5 J.'})</small>` : ''), athVal ? fmtPrice(athVal, it.symbol) : '—')}
-          ${row('Abstand zum Allzeithoch', athVal ? `<span class="${cls(q.price / athVal - 1)}">${fmtPct((q.price / athVal - 1) * 100, true)}</span>` : '—')}
+          ${row('Hoch 10 Jahre' + (ath && s.monthly && s.monthly.bars.length < 100 ? ` <small>(seit ${new Date(s.monthly.bars[0].t * 1000).getFullYear()})</small>` : ''), athVal ? fmtPrice(athVal, it.symbol) : '—')}
+          ${row('Abstand zum 10-J.-Hoch', athVal ? `<span class="${cls(q.price / athVal - 1)}">${fmtPct((q.price / athVal - 1) * 100, true)}</span>` : '—')}
           ${row('Währung', esc(q.currency || '—'))}
           ${row('Börse', esc(q.exchange || '—'))}
         </div>
@@ -1242,6 +1274,7 @@
   // Start
   // ======================================================================
   D.configure(state.settings);
+  if (state.settings.source !== 'demo') loadCache();
   applyTheme();
   let lastW = innerWidth;
   addEventListener('resize', () => {

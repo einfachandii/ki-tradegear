@@ -54,8 +54,9 @@
       let refKey;
       if (per.ytd) refKey = `${now.getUTCFullYear() - 1}-12-31`;
       else refKey = keyOf(shift(now, per));
-      if (refKey < firstKey) { out[per.id] = null; continue; }
-      const ref = closeOnOrBefore(bars, off, refKey);
+      // kleine Toleranz: Datenreihe beginnt evtl. ein paar Tage nach dem Stichtag
+      if (refKey < firstKey && (new Date(firstKey) - new Date(refKey)) > 7 * 864e5) { out[per.id] = null; continue; }
+      const ref = refKey < firstKey ? bars[0].c : closeOnOrBefore(bars, off, refKey);
       out[per.id] = ref ? { pct: (p / ref - 1) * 100, abs: p - ref, ref } : null;
     }
     return out;
@@ -65,7 +66,7 @@
   function yearly(bars, off, price) {
     if (!bars || bars.length < 2) return [];
     const byYear = new Map();
-    for (const b of bars) byYear.set(localDate(b.t, off).getUTCFullYear(), b.c);
+    for (const b of bars) byYear.set(+dayKey(b.t, off).slice(0, 4), b.c);
     const years = [...byYear.keys()].sort((a, b) => a - b);
     const curYear = years[years.length - 1];
     if (price != null) byYear.set(curYear, price);

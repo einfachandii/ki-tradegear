@@ -18,7 +18,7 @@ export default {
     // Nur Yahoo Finance erlauben – kein offener Proxy
     if (!/^query[12]\.finance\.yahoo\.com$/.test(u.hostname)) return new Response('nicht erlaubt', { status: 403, headers: cors });
     const res = await fetch(u.toString(), {
-      headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/124 Safari/537.36' },
+      headers: { 'User-Agent': 'Mozilla/5.0' },
       cf: { cacheTtl: 60, cacheEverything: true },
     });
     return new Response(res.body, {
